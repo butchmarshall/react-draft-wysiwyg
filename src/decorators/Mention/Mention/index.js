@@ -43,4 +43,6 @@ Mention.prototype.findMentionEntities = (contentBlock, callback, contentState) =
   );
 };
 
+export default Mention;
+
 module.exports = Mention;

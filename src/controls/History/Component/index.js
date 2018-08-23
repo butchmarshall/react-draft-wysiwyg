@@ -6,8 +6,11 @@ import classNames from 'classnames';
 
 import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
-import { Dropdown, DropdownOption } from '../../../components/Dropdown';
+import DropdownComponents from '../../../components/Dropdown';
 import './styles.css';
+
+const Dropdown = DropdownComponents.Dropdown;
+const DropdownOption = DropdownComponents.DropdownOption;
 
 export default class History extends Component {
   static propTypes = {

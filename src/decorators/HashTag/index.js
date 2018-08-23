@@ -64,4 +64,8 @@ class Hashtag {
 
 const getDecorator = config => (new Hashtag(config)).getHashtagDecorator();
 
-module.exports = getDecorator;
+const exports = getDecorator;
+
+export default exports;
+
+module.exports = exports;

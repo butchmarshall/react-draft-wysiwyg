@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Option from '../../../components/Option';
-import { Dropdown, DropdownOption } from '../../../components/Dropdown';
+import DropdownComponents from '../../../components/Dropdown';
 import './styles.css';
+
+const Dropdown = DropdownComponents.Dropdown;
+const DropdownOption = DropdownComponents.DropdownOption;
 
 class LayoutComponent extends Component {
   static propTypes = {

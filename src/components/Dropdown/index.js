@@ -3,7 +3,11 @@
 import Dropdown from './Dropdown';
 import DropdownOption from './DropdownOption';
 
-module.exports = {
+const exports = {
   Dropdown,
   DropdownOption,
 };
+
+export default exports;
+
+module.exports = exports;

@@ -4,8 +4,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Dropdown, DropdownOption } from '../../../components/Dropdown';
+import DropdownComponents from '../../../components/Dropdown';
 import './styles.css';
+
+const Dropdown = DropdownComponents.Dropdown;
+const DropdownOption = DropdownComponents.DropdownOption;
 
 export default class LayoutComponent extends Component {
   static propTypes = {
