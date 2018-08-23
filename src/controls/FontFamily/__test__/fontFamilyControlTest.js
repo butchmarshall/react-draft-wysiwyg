@@ -10,10 +10,13 @@ import {
 } from 'draft-js';
 
 import FontFamilyControl from '..';
-import { Dropdown } from '../../../components/Dropdown';
+import DropdownComponents from '../../../components/Dropdown';
 import defaultToolbar from '../../../config/defaultToolbar';
 import ModalHandler from '../../../event-handler/modals';
 import localeTranslations from '../../../i18n';
+
+const Dropdown = DropdownComponents.Dropdown;
+const DropdownOption = DropdownComponents.DropdownOption;
 
 describe('FontFamilyControl test suite', () => {
   const contentBlocks = convertFromHTML('<div>test</div>');

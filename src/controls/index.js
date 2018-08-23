@@ -12,7 +12,7 @@ import image from './Image';
 import remove from './Remove';
 import history from './History';
 
-module.exports = {
+const exports = {
   inline,
   blockType,
   fontSize,
@@ -27,3 +27,7 @@ module.exports = {
   remove,
   history,
 };
+
+export default exports;
+
+module.exports = exports;

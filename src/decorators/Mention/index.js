@@ -6,4 +6,8 @@ const getDecorators = config => [
   (new Suggestion(config)).getSuggestionDecorator(),
 ];
 
-module.exports = getDecorators;
+const exports = getDecorators;
+
+export default exports;
+
+module.exports = exports;

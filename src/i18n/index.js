@@ -13,7 +13,7 @@ import pl from './pl';
 import es from './es';
 import ja from './ja';
 
-module.exports = {
+const exports = {
   en,
   fr,
   zh,
@@ -29,3 +29,7 @@ module.exports = {
   es,
   ja
 };
+
+export default exports;
+
+module.exports = exports;
