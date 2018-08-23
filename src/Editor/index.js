@@ -35,7 +35,7 @@ import getBlockRenderFunc from "../renderer";
 import defaultToolbar from "../config/defaultToolbar";
 import localeTranslations from "../i18n";
 import styles from "./styles.css";
-import "style-loader!css-loader!../../css/Draft.css";
+import "style-loader!css-loader!Draft.css";
 
 export default class WysiwygEditor extends Component {
   static propTypes = {
