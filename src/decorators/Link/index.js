@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import openlink from '../../../images/openlink.svg';
-import './styles.css';
+import styles from './styles.css';
 
 function findLinkEntities(contentBlock, callback, contentState) {
   contentBlock.findEntityRanges(
@@ -52,7 +52,7 @@ function getLinkComponent(config) {
       const { showPopOver } = this.state;
       return (
         <span
-          className="rdw-link-decorator-wrapper"
+          className={styles["rdw-link-decorator-wrapper"]}
           onMouseEnter={this.toggleShowPopOver}
           onMouseLeave={this.toggleShowPopOver}
         >
@@ -62,7 +62,7 @@ function getLinkComponent(config) {
               src={openlink}
               alt=""
               onClick={this.openLink}
-              className="rdw-link-decorator-icon"
+              className={styles["rdw-link-decorator-icon"]}
             />
             : undefined
           }

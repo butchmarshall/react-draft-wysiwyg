@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { getFirstIcon } from '../../../utils/toolbar';
 import DropdownComponents from '../../../components/Dropdown';
 import Option from '../../../components/Option';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -55,7 +55,7 @@ export default class LayoutComponent extends Component {
     } = this.props;
     const { options, unordered, ordered, indent, outdent, className } = config;
     return (
-      <div className={classNames('rdw-list-wrapper', className)} aria-label="rdw-list-control">
+      <div className={classNames(styles['rdw-list-wrapper'], className)} aria-label="rdw-list-control">
         {options.indexOf('unordered') >= 0 && <Option
           value="unordered"
           onClick={this.toggleBlockType}
@@ -120,7 +120,7 @@ export default class LayoutComponent extends Component {
     const { options, className, dropdownClassName, title } = config;
     return (
       <Dropdown
-        className={classNames('rdw-list-dropdown', className)}
+        className={classNames(styles['rdw-list-dropdown'], className)}
         optionWrapperClassName={classNames(dropdownClassName)}
         onChange={onChange}
         expanded={expanded}
@@ -140,7 +140,7 @@ export default class LayoutComponent extends Component {
             key={index}
             value={option}
             disabled={this.props[`${option}Disabled`]}
-            className={classNames('rdw-list-dropdownOption', config[option].className)}
+            className={classNames(styles['rdw-list-dropdownOption'], config[option].className)}
             active={listType === option}
             title={config[option].title || translations[`components.controls.list.${option}`]}
           >

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './styles.css';
+import styles from './styles.css';
 
 export default class Option extends Component {
   static propTypes = {
@@ -29,11 +29,11 @@ export default class Option extends Component {
     return (
       <div
         className={classNames(
-          'rdw-option-wrapper',
+          styles['rdw-option-wrapper'],
           className,
           {
-            [`rdw-option-active ${activeClassName}`]: active,
-            'rdw-option-disabled': disabled,
+            [styles[['rdw-option-active '+activeClassName]]] : active,
+            [styles['rdw-option-disabled']] : disabled,
           },
         )}
         onClick={this.onClick}

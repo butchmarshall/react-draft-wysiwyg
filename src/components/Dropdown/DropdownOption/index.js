@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './styles.css';
+import styles from './styles.css';
 
 export default class DropDownOption extends Component {
   static propTypes = {
@@ -61,11 +61,11 @@ export default class DropDownOption extends Component {
     return (
       <li
         className={classNames(
-          'rdw-dropdownoption-default',
+          styles['rdw-dropdownoption-default'],
           className,
-          { [`rdw-dropdownoption-active ${activeClassName}`]: active,
-            [`rdw-dropdownoption-highlighted ${highlightedClassName}`]: highlighted,
-            [`rdw-dropdownoption-disabled ${disabledClassName}`]: disabled,
+          { [styles["rdw-dropdownoption-active "+activeClassName]] : active,
+            [styles["rdw-dropdownoption-highlighted "+highlightedClassName]] : highlighted,
+            [styles["rdw-dropdownoption-disabled "+disabledClassName]] : disabled,
           })
         }
         onMouseEnter={this.setHighlighted}

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import DropdownComponents from '../../../components/Dropdown';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -42,7 +42,7 @@ export default class History extends Component {
     const { options, undo, redo, className, dropdownClassName, title } = config;
     return (
       <Dropdown
-        className={classNames('rdw-history-dropdown', className)}
+        className={classNames(styles['rdw-history-dropdown'], className)}
         optionWrapperClassName={classNames(dropdownClassName)}
         expanded={expanded}
         doExpand={doExpand}
@@ -59,7 +59,7 @@ export default class History extends Component {
           value="undo"
           onClick={this.onChange}
           disabled={undoDisabled}
-          className={classNames('rdw-history-dropdownoption', undo.className)}
+          className={classNames(styles['rdw-history-dropdownoption'], undo.className)}
           title={undo.title || translations['components.controls.history.undo']}
         >
           <img
@@ -71,7 +71,7 @@ export default class History extends Component {
           value="redo"
           onClick={this.onChange}
           disabled={redoDisabled}
-          className={classNames('rdw-history-dropdownoption', redo.className)}
+          className={classNames(styles['rdw-history-dropdownoption'], redo.className)}
           title={redo.title || translations['components.controls.history.redo']}
         >
           <img
@@ -90,7 +90,7 @@ export default class History extends Component {
       translations,
     } = this.props;
     return (
-      <div className={classNames('rdw-history-wrapper', className)} aria-label="rdw-history-control">
+      <div className={classNames(styles['rdw-history-wrapper'], className)} aria-label="rdw-history-control">
         {options.indexOf('undo') >= 0 && <Option
           value="undo"
           onClick={this.onChange}

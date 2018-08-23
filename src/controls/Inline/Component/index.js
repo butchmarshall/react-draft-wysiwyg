@@ -8,7 +8,7 @@ import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import DropdownComponents from '../../../components/Dropdown';
 
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -28,7 +28,7 @@ export default class Inline extends Component {
   renderInFlatList(): Object {
     const { config, currentState, onChange, translations } = this.props;
     return (
-      <div className={classNames('rdw-inline-wrapper', config.className)} aria-label="rdw-inline-control">
+      <div className={classNames(styles['rdw-inline-wrapper'], config.className)} aria-label="rdw-inline-control">
         {
           config.options
             .map((style, index) =>
@@ -68,7 +68,7 @@ export default class Inline extends Component {
     const { className, dropdownClassName, title } = config;
     return (
       <Dropdown
-        className={classNames('rdw-inline-dropdown', className)}
+        className={classNames(styles['rdw-inline-dropdown'], className)}
         optionWrapperClassName={classNames(dropdownClassName)}
         onChange={onChange}
         expanded={expanded}
@@ -88,7 +88,7 @@ export default class Inline extends Component {
               (<DropdownOption
                 key={index}
                 value={style}
-                className={classNames('rdw-inline-dropdownoption', config[style].className)}
+                className={classNames(styles['rdw-inline-dropdownoption'], config[style].className)}
                 active={
                   currentState[style] === true ||
                   (style === 'MONOSPACE' && currentState.CODE)

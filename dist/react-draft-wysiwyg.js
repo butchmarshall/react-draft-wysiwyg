@@ -1300,6 +1300,7 @@ function styleInject(css, ref) {
 }
 
 var css = ".styles_rdw-option-wrapper__2zViI {\n  border: 1px solid #F1F1F1;\n  padding: 5px;\n  min-width: 25px;\n  height: 20px;\n  border-radius: 2px;\n  margin: 0 4px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n  background: white;\n  text-transform: capitalize;\n}\n.styles_rdw-option-wrapper__2zViI:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n}\n.styles_rdw-option-wrapper__2zViI:active {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-option-active__2lWPn {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-option-disabled__1lsss {\n  opacity: 0.3;\n  cursor: default;\n}\n";
+var styles = { "rdw-option-wrapper": "styles_rdw-option-wrapper__2zViI", "rdw-option-active": "styles_rdw-option-active__2lWPn", "rdw-option-disabled": "styles_rdw-option-disabled__1lsss" };
 styleInject(css);
 
 var Option = function (_Component) {
@@ -1344,7 +1345,7 @@ var Option = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-option-wrapper', className, (_classNames = {}, defineProperty(_classNames, 'rdw-option-active ' + activeClassName, active), defineProperty(_classNames, 'rdw-option-disabled', disabled), _classNames)),
+          className: classnames(styles['rdw-option-wrapper'], className, (_classNames = {}, defineProperty(_classNames, styles[['rdw-option-active ' + activeClassName]], active), defineProperty(_classNames, styles['rdw-option-disabled'], disabled), _classNames)),
           onClick: this.onClick,
           'aria-selected': active,
           title: title
@@ -1368,6 +1369,7 @@ Option.propTypes = {
 };
 
 var css$1 = ".styles_rdw-dropdown-wrapper__3W85T {\n  height: 30px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  margin: 0 3px;\n  text-transform: capitalize;\n  background: white;\n}\n.styles_rdw-dropdown-wrapper__3W85T:focus {\n  outline: none;\n}\n.styles_rdw-dropdown-wrapper__3W85T:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n  background-color: #FFFFFF;\n}\n.styles_rdw-dropdown-wrapper__3W85T:active {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-dropdown-carettoopen__3Qiui {\n  height: 0px;\n  width: 0px;\n  position: absolute;\n  top: 35%;\n  right: 10%;\n  border-top: 6px solid black;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n}\n.styles_rdw-dropdown-carettoclose__2Un8X {\n  height: 0px;\n  width: 0px;\n  position: absolute;\n  top: 35%;\n  right: 10%;\n  border-bottom: 6px solid black;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n}\n.styles_rdw-dropdown-selectedtext__1ObKy {\n  display: flex;\n  position: relative;\n  height: 100%;\n  align-items: center;\n  padding: 0 5px;\n}\n.styles_rdw-dropdown-optionwrapper__1pxn6 {\n  z-index: 100;\n  position: relative;\n  border: 1px solid #F1F1F1;\n  width: 98%;\n  background: white;\n  border-radius: 2px;\n  margin: 0;\n  padding: 0;\n  max-height: 250px;\n  overflow-y: scroll;\n}\n.styles_rdw-dropdown-optionwrapper__1pxn6:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n  background-color: #FFFFFF;\n}\n";
+var styles$1 = { "rdw-dropdown-wrapper": "styles_rdw-dropdown-wrapper__3W85T", "rdw-dropdown-carettoopen": "styles_rdw-dropdown-carettoopen__3Qiui", "rdw-dropdown-carettoclose": "styles_rdw-dropdown-carettoclose__2Un8X", "rdw-dropdown-selectedtext": "styles_rdw-dropdown-selectedtext__1ObKy", "rdw-dropdown-optionwrapper": "styles_rdw-dropdown-optionwrapper__1pxn6" };
 styleInject(css$1);
 
 var Dropdown = function (_Component) {
@@ -1423,7 +1425,8 @@ var Dropdown = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _classNames,
+          _this2 = this;
 
       var _props = this.props,
           expanded = _props.expanded,
@@ -1439,29 +1442,26 @@ var Dropdown = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-dropdown-wrapper', className),
+          className: classnames(styles$1['rdw-dropdown-wrapper'], className),
           'aria-expanded': expanded,
           'aria-label': ariaLabel || 'rdw-dropdown'
         },
         React__default.createElement(
           'a',
           {
-            className: 'rdw-dropdown-selectedtext',
+            className: styles$1["rdw-dropdown-selectedtext"],
             onClick: onExpandEvent,
             title: title
           },
           children[0],
           React__default.createElement('div', {
-            className: classnames({
-              'rdw-dropdown-carettoclose': expanded,
-              'rdw-dropdown-carettoopen': !expanded
-            })
+            className: classnames((_classNames = {}, defineProperty(_classNames, styles$1['rdw-dropdown-carettoclose'], expanded), defineProperty(_classNames, styles$1['rdw-dropdown-carettoopen'], !expanded), _classNames))
           })
         ),
         expanded ? React__default.createElement(
           'ul',
           {
-            className: classnames('rdw-dropdown-optionwrapper', optionWrapperClassName),
+            className: classnames(styles$1['rdw-dropdown-optionwrapper'], optionWrapperClassName),
             onClick: stopPropagation
           },
           React__default.Children.map(options, function (option, index) {
@@ -1494,6 +1494,7 @@ Dropdown.propTypes = {
 };
 
 var css$2 = ".styles_rdw-dropdownoption-default__3lCp1 {\n  min-height: 25px;\n  display: flex;\n  align-items: center;\n  padding: 0 5px;\n}\n.styles_rdw-dropdownoption-highlighted__Pwz0L {\n  background: #F1F1F1;\n}\n.styles_rdw-dropdownoption-active__24vk6 {\n  background: #f5f5f5;\n}\n.styles_rdw-dropdownoption-disabled__7Pjd- {\n  opacity: 0.3;\n  cursor: default;\n}\n";
+var styles$2 = { "rdw-dropdownoption-default": "styles_rdw-dropdownoption-default__3lCp1", "rdw-dropdownoption-highlighted": "styles_rdw-dropdownoption-highlighted__Pwz0L", "rdw-dropdownoption-active": "styles_rdw-dropdownoption-active__24vk6", "rdw-dropdownoption-disabled": "styles_rdw-dropdownoption-disabled__7Pjd-" };
 styleInject(css$2);
 
 var DropDownOption = function (_Component) {
@@ -1558,7 +1559,7 @@ var DropDownOption = function (_Component) {
       return React__default.createElement(
         'li',
         {
-          className: classnames('rdw-dropdownoption-default', className, (_classNames = {}, defineProperty(_classNames, 'rdw-dropdownoption-active ' + activeClassName, active), defineProperty(_classNames, 'rdw-dropdownoption-highlighted ' + highlightedClassName, highlighted), defineProperty(_classNames, 'rdw-dropdownoption-disabled ' + disabledClassName, disabled), _classNames)),
+          className: classnames(styles$2['rdw-dropdownoption-default'], className, (_classNames = {}, defineProperty(_classNames, styles$2["rdw-dropdownoption-active " + activeClassName], active), defineProperty(_classNames, styles$2["rdw-dropdownoption-highlighted " + highlightedClassName], highlighted), defineProperty(_classNames, styles$2["rdw-dropdownoption-disabled " + disabledClassName], disabled), _classNames)),
           onMouseEnter: this.setHighlighted,
           onMouseLeave: this.resetHighlighted,
           onClick: this.onClick,
@@ -1598,6 +1599,7 @@ var exports$2 = {
 module.exports = exports$2;
 
 var css$3 = ".styles_rdw-inline-wrapper__1P4_m {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-inline-dropdown__2HulI {\n  width: 50px;\n}\n.styles_rdw-inline-dropdownoption__3y2-H {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n";
+var styles$3 = { "rdw-inline-wrapper": "styles_rdw-inline-wrapper__1P4_m", "rdw-inline-dropdown": "styles_rdw-inline-dropdown__2HulI", "rdw-inline-dropdownoption": "styles_rdw-inline-dropdownoption__3y2-H" };
 styleInject(css$3);
 
 var Dropdown$1 = exports$2.Dropdown;
@@ -1622,7 +1624,7 @@ var Inline = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-inline-wrapper', config.className), 'aria-label': 'rdw-inline-control' },
+        { className: classnames(styles$3['rdw-inline-wrapper'], config.className), 'aria-label': 'rdw-inline-control' },
         config.options.map(function (style, index) {
           return React__default.createElement(
             Option,
@@ -1661,7 +1663,7 @@ var Inline = function (_Component) {
       return React__default.createElement(
         Dropdown$1,
         {
-          className: classnames('rdw-inline-dropdown', className),
+          className: classnames(styles$3['rdw-inline-dropdown'], className),
           optionWrapperClassName: classnames(dropdownClassName),
           onChange: onChange,
           expanded: expanded,
@@ -1681,7 +1683,7 @@ var Inline = function (_Component) {
             {
               key: index,
               value: style,
-              className: classnames('rdw-inline-dropdownoption', config[style].className),
+              className: classnames(styles$3['rdw-inline-dropdownoption'], config[style].className),
               active: currentState[style] === true || style === 'MONOSPACE' && currentState.CODE,
               title: config[style].title || translations['components.controls.inline.' + style]
             },
@@ -1846,6 +1848,7 @@ Inline$1.propTypes = {
 };
 
 var css$4 = ".styles_rdw-block-wrapper__nEfEV {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-block-dropdown__3dLTo {\n  width: 110px;\n}\n";
+var styles$4 = { "rdw-block-wrapper": "styles_rdw-block-wrapper__nEfEV", "rdw-block-dropdown": "styles_rdw-block-dropdown__3dLTo" };
 styleInject(css$4);
 
 var Dropdown$2 = exports$2.Dropdown;
@@ -1888,7 +1891,7 @@ var LayoutComponent = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-inline-wrapper', className) },
+        { className: classnames(styles$4['rdw-inline-wrapper'], className) },
         blocks.map(function (block, index) {
           return React__default.createElement(
             Option,
@@ -1926,11 +1929,11 @@ var LayoutComponent = function (_Component) {
       var currentLabel = currentBlockData && currentBlockData[0] && currentBlockData[0].displayName;
       return React__default.createElement(
         'div',
-        { className: 'rdw-block-wrapper', 'aria-label': 'rdw-block-control' },
+        { className: styles$4["rdw-block-wrapper"], 'aria-label': 'rdw-block-control' },
         React__default.createElement(
           Dropdown$2,
           {
-            className: classnames('rdw-block-dropdown', className),
+            className: classnames(styles$4['rdw-block-dropdown'], className),
             optionWrapperClassName: classnames(dropdownClassName),
             onChange: onChange,
             expanded: expanded,
@@ -2101,6 +2104,7 @@ BlockType.propTypes = {
 };
 
 var css$5 = ".styles_rdw-fontsize-wrapper__1wR6G {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-fontsize-dropdown__nOiqS {\n  min-width: 40px;\n}\n.styles_rdw-fontsize-option__2Bkf8 {\n  display: flex;\n  justify-content: center;\n}\n";
+var styles$5 = { "rdw-fontsize-wrapper": "styles_rdw-fontsize-wrapper__1wR6G", "rdw-fontsize-dropdown": "styles_rdw-fontsize-dropdown__nOiqS", "rdw-fontsize-option": "styles_rdw-fontsize-option__2Bkf8" };
 styleInject(css$5);
 
 var Dropdown$3 = exports$2.Dropdown;
@@ -2161,11 +2165,11 @@ var LayoutComponent$1 = function (_Component) {
       currentFontSize = currentFontSize || options && options.indexOf(defaultFontSize) >= 0 && defaultFontSize;
       return React__default.createElement(
         'div',
-        { className: 'rdw-fontsize-wrapper', 'aria-label': 'rdw-font-size-control' },
+        { className: styles$5["rdw-fontsize-wrapper"], 'aria-label': 'rdw-font-size-control' },
         React__default.createElement(
           Dropdown$3,
           {
-            className: classnames('rdw-fontsize-dropdown', className),
+            className: classnames(styles$5['rdw-fontsize-dropdown'], className),
             optionWrapperClassName: classnames(dropdownClassName),
             onChange: onChange,
             expanded: expanded,
@@ -2183,7 +2187,7 @@ var LayoutComponent$1 = function (_Component) {
             return React__default.createElement(
               DropdownOption$2,
               {
-                className: 'rdw-fontsize-option',
+                className: styles$5["rdw-fontsize-option"],
                 active: currentFontSize === size,
                 value: size,
                 key: index
@@ -2319,6 +2323,7 @@ FontSize.propTypes = {
 };
 
 var css$6 = ".styles_rdw-fontfamily-wrapper__21RBK {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-fontfamily-dropdown__1We3y {\n  width: 115px;\n}\n.styles_rdw-fontfamily-placeholder__2QAsi {\n  white-space: nowrap;\n  max-width: 90px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.styles_rdw-fontfamily-optionwrapper__2E0Lw {\n  width: 140px;\n}\n";
+var styles$6 = { "rdw-fontfamily-wrapper": "styles_rdw-fontfamily-wrapper__21RBK", "rdw-fontfamily-dropdown": "styles_rdw-fontfamily-dropdown__1We3y", "rdw-fontfamily-placeholder": "styles_rdw-fontfamily-placeholder__2QAsi", "rdw-fontfamily-optionwrapper": "styles_rdw-fontfamily-optionwrapper__2E0Lw" };
 styleInject(css$6);
 
 var Dropdown$4 = exports$2.Dropdown;
@@ -2378,11 +2383,11 @@ var LayoutComponent$2 = function (_Component) {
       }) && defaultFontFamily;
       return React__default.createElement(
         'div',
-        { className: 'rdw-fontfamily-wrapper', 'aria-label': 'rdw-font-family-control' },
+        { className: styles$6["rdw-fontfamily-wrapper"], 'aria-label': 'rdw-font-family-control' },
         React__default.createElement(
           Dropdown$4,
           {
-            className: classnames('rdw-fontfamily-dropdown', className),
+            className: classnames(styles$6['rdw-fontfamily-dropdown'], className),
             optionWrapperClassName: classnames('rdw-fontfamily-optionwrapper', dropdownClassName),
             onChange: onChange,
             expanded: expanded,
@@ -2393,7 +2398,7 @@ var LayoutComponent$2 = function (_Component) {
           },
           React__default.createElement(
             'span',
-            { className: 'rdw-fontfamily-placeholder' },
+            { className: styles$6["rdw-fontfamily-placeholder"] },
             currentFontFamily || translations['components.controls.fontfamily.fontfamily']
           ),
           options.map(function (family, index) {
@@ -2535,6 +2540,7 @@ FontFamily.propTypes = {
 };
 
 var css$7 = ".styles_rdw-list-wrapper__2ooQ_ {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-list-dropdown__3diZQ {\n  width: 50px;\n  z-index: 90;\n}\n.styles_rdw-list-dropdownOption__ntKvF {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n";
+var styles$7 = { "rdw-list-wrapper": "styles_rdw-list-wrapper__2ooQ_", "rdw-list-dropdown": "styles_rdw-list-dropdown__3diZQ", "rdw-list-dropdownOption": "styles_rdw-list-dropdownOption__ntKvF" };
 styleInject(css$7);
 
 var Dropdown$5 = exports$2.Dropdown;
@@ -2591,7 +2597,7 @@ var LayoutComponent$3 = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-list-wrapper', className), 'aria-label': 'rdw-list-control' },
+        { className: classnames(styles$7['rdw-list-wrapper'], className), 'aria-label': 'rdw-list-control' },
         options.indexOf('unordered') >= 0 && React__default.createElement(
           Option,
           {
@@ -2670,7 +2676,7 @@ var LayoutComponent$3 = function (_Component) {
       return React__default.createElement(
         Dropdown$5,
         {
-          className: classnames('rdw-list-dropdown', className),
+          className: classnames(styles$7['rdw-list-dropdown'], className),
           optionWrapperClassName: classnames(dropdownClassName),
           onChange: onChange,
           expanded: expanded,
@@ -2693,7 +2699,7 @@ var LayoutComponent$3 = function (_Component) {
               key: index,
               value: option,
               disabled: _this2.props[option + 'Disabled'],
-              className: classnames('rdw-list-dropdownOption', config[option].className),
+              className: classnames(styles$7['rdw-list-dropdownOption'], config[option].className),
               active: listType === option,
               title: config[option].title || translations['components.controls.list.' + option]
             },
@@ -2880,6 +2886,7 @@ List.propTypes = {
 };
 
 var css$8 = ".styles_rdw-text-align-wrapper__3981N {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-text-align-dropdown__1iQB- {\n  width: 50px;\n  z-index: 90;\n}\n.styles_rdw-text-align-dropdownOption__3ePHm {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-right-aligned-block__rsuYT {\n  text-align: right;\n}\n.styles_rdw-left-aligned-block__zUlT6 {\n  text-align: left !important;\n}\n.styles_rdw-center-aligned-block__23hhC {\n  text-align: center !important;\n}\n.styles_rdw-justify-aligned-block__2-1sa {\n  text-align: justify !important;\n}\n.styles_rdw-right-aligned-block__rsuYT > div {\n  display: inline-block;\n}\n.styles_rdw-left-aligned-block__zUlT6 > div {\n  display: inline-block;\n}\n.styles_rdw-center-aligned-block__23hhC > div {\n  display: inline-block;\n}\n.styles_rdw-justify-aligned-block__2-1sa > div {\n  display: inline-block;\n}\n";
+var styles$8 = { "rdw-text-align-wrapper": "styles_rdw-text-align-wrapper__3981N", "rdw-text-align-dropdown": "styles_rdw-text-align-dropdown__1iQB-", "rdw-text-align-dropdownOption": "styles_rdw-text-align-dropdownOption__3ePHm", "rdw-right-aligned-block": "styles_rdw-right-aligned-block__rsuYT", "rdw-left-aligned-block": "styles_rdw-left-aligned-block__zUlT6", "rdw-center-aligned-block": "styles_rdw-center-aligned-block__23hhC", "rdw-justify-aligned-block": "styles_rdw-justify-aligned-block__2-1sa" };
 styleInject(css$8);
 
 var Dropdown$6 = exports$2.Dropdown;
@@ -2910,7 +2917,7 @@ var TextAlign = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-text-align-wrapper', className), 'aria-label': 'rdw-textalign-control' },
+        { className: classnames(styles$8['rdw-text-align-wrapper'], className), 'aria-label': 'rdw-textalign-control' },
         options.indexOf('left') >= 0 && React__default.createElement(
           Option,
           {
@@ -2993,7 +3000,7 @@ var TextAlign = function (_Component) {
       return React__default.createElement(
         Dropdown$6,
         {
-          className: classnames('rdw-text-align-dropdown', className),
+          className: classnames(styles$8['rdw-text-align-dropdown'], className),
           optionWrapperClassName: classnames(dropdownClassName),
           onChange: onChange,
           expanded: expanded,
@@ -3012,7 +3019,7 @@ var TextAlign = function (_Component) {
           {
             value: 'left',
             active: textAlignment === 'left',
-            className: classnames('rdw-text-align-dropdownOption', left.className),
+            className: classnames(styles$8['rdw-text-align-dropdownOption'], left.className),
             title: left.title || translations['components.controls.textalign.left']
           },
           React__default.createElement('img', {
@@ -3038,7 +3045,7 @@ var TextAlign = function (_Component) {
           {
             value: 'right',
             active: textAlignment === 'right',
-            className: classnames('rdw-text-align-dropdownOption', right.className),
+            className: classnames(styles$8['rdw-text-align-dropdownOption'], right.className),
             title: right.title || translations['components.controls.textalign.right']
           },
           React__default.createElement('img', {
@@ -3051,7 +3058,7 @@ var TextAlign = function (_Component) {
           {
             value: 'justify',
             active: textAlignment === 'justify',
-            className: classnames('rdw-text-align-dropdownOption', justify.className),
+            className: classnames(styles$8['rdw-text-align-dropdownOption'], justify.className),
             title: justify.title || translations['components.controls.textalign.justify']
           },
           React__default.createElement('img', {
@@ -3189,6 +3196,7 @@ TextAlign$1.propTypes = {
 };
 
 var css$9 = ".styles_rdw-colorpicker-wrapper__2abJ_ {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n.styles_rdw-colorpicker-modal__Z_ACa {\n  position: absolute;\n  top: 35px;\n  left: 5px;\n  display: flex;\n  flex-direction: column;\n  width: 175px;\n  height: 175px;\n  border: 1px solid #F1F1F1;\n  padding: 15px;\n  border-radius: 2px;\n  z-index: 100;\n  background: white;\n  box-shadow: 3px 3px 5px #BFBDBD;\n}\n.styles_rdw-colorpicker-modal-header__2F8Ms {\n  display: flex;\n  padding-bottom: 5px;\n}\n.styles_rdw-colorpicker-modal-style-label__2RE29 {\n  font-size: 15px;\n  width: 50%;\n  text-align: center;\n  cursor: pointer;\n  padding: 0 10px 5px;\n}\n.styles_rdw-colorpicker-modal-style-label-active__1iPjw {\n  border-bottom: 2px solid #0a66b7;\n}\n.styles_rdw-colorpicker-modal-options__1pG_N {\n  margin: 5px auto;\n  display: flex;\n  width: 100%;\n  height: 100%;\n  flex-wrap: wrap;\n  overflow: scroll;\n}\n.styles_rdw-colorpicker-cube__165RY {\n  width: 22px;\n  height: 22px;\n  border: 1px solid #F1F1F1;\n}\n.styles_rdw-colorpicker-option__rrvGG {\n  margin: 3px;\n  padding: 0;\n  min-height: 20px;\n  border: none;\n  width: 22px;\n  height: 22px;\n  min-width: 22px;\n  box-shadow: 1px 2px 1px #BFBDBD inset;\n}\n.styles_rdw-colorpicker-option__rrvGG:hover {\n  box-shadow: 1px 2px 1px #BFBDBD;\n}\n.styles_rdw-colorpicker-option__rrvGG:active {\n  box-shadow: -1px -2px 1px #BFBDBD;\n}\n.styles_rdw-colorpicker-option-active__3JzTN {\n  box-shadow: 0px 0px 2px 2px #BFBDBD;\n}\n";
+var styles$9 = { "rdw-colorpicker-wrapper": "styles_rdw-colorpicker-wrapper__2abJ_", "rdw-colorpicker-modal": "styles_rdw-colorpicker-modal__Z_ACa", "rdw-colorpicker-modal-header": "styles_rdw-colorpicker-modal-header__2F8Ms", "rdw-colorpicker-modal-style-label": "styles_rdw-colorpicker-modal-style-label__2RE29", "rdw-colorpicker-modal-style-label-active": "styles_rdw-colorpicker-modal-style-label-active__1iPjw", "rdw-colorpicker-modal-options": "styles_rdw-colorpicker-modal-options__1pG_N", "rdw-colorpicker-cube": "styles_rdw-colorpicker-cube__165RY", "rdw-colorpicker-option": "styles_rdw-colorpicker-option__rrvGG", "rdw-colorpicker-option-active": "styles_rdw-colorpicker-option-active__3JzTN" };
 styleInject(css$9);
 
 var LayoutComponent$4 = function (_Component) {
@@ -3235,16 +3243,16 @@ var LayoutComponent$4 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-colorpicker-modal', popupClassName),
+          className: classnames(styles$9['rdw-colorpicker-modal'], popupClassName),
           onClick: stopPropagation
         },
         React__default.createElement(
           'span',
-          { className: 'rdw-colorpicker-modal-header' },
+          { className: styles$9["rdw-colorpicker-modal-header"] },
           React__default.createElement(
             'span',
             {
-              className: classnames('rdw-colorpicker-modal-style-label', { 'rdw-colorpicker-modal-style-label-active': currentStyle === 'color' }),
+              className: classnames(styles$9['rdw-colorpicker-modal-style-label'], defineProperty({}, styles$9['rdw-colorpicker-modal-style-label-active'], currentStyle === 'color')),
               onClick: _this.setCurrentStyleColor
             },
             translations['components.controls.colorpicker.text']
@@ -3252,7 +3260,7 @@ var LayoutComponent$4 = function (_Component) {
           React__default.createElement(
             'span',
             {
-              className: classnames('rdw-colorpicker-modal-style-label', { 'rdw-colorpicker-modal-style-label-active': currentStyle === 'bgcolor' }),
+              className: classnames(styles$9['rdw-colorpicker-modal-style-label'], defineProperty({}, styles$9['rdw-colorpicker-modal-style-label-active'], currentStyle === 'bgcolor')),
               onClick: _this.setCurrentStyleBgcolor
             },
             translations['components.controls.colorpicker.background']
@@ -3260,21 +3268,21 @@ var LayoutComponent$4 = function (_Component) {
         ),
         React__default.createElement(
           'span',
-          { className: 'rdw-colorpicker-modal-options' },
+          { className: styles$9["rdw-colorpicker-modal-options"] },
           colors.map(function (c, index) {
             return React__default.createElement(
               Option,
               {
                 value: c,
                 key: index,
-                className: 'rdw-colorpicker-option',
+                className: styles$9["rdw-colorpicker-option"],
                 activeClassName: 'rdw-colorpicker-option-active',
                 active: currentSelectedColor === c,
                 onClick: _this.onChange
               },
               React__default.createElement('span', {
                 style: { backgroundColor: c },
-                className: 'rdw-colorpicker-cube'
+                className: styles$9["rdw-colorpicker-cube"]
               })
             );
           })
@@ -3307,7 +3315,7 @@ var LayoutComponent$4 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: 'rdw-colorpicker-wrapper',
+          className: styles$9["rdw-colorpicker-wrapper"],
           'aria-haspopup': 'true',
           'aria-expanded': expanded,
           'aria-label': 'rdw-color-picker',
@@ -4274,6 +4282,7 @@ LinkifyIt.prototype.onCompile = function onCompile() {
 var linkifyIt = LinkifyIt;
 
 var css$a = ".styles_rdw-link-wrapper__3cfYc {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n.styles_rdw-link-dropdown__1Hi3q {\n  width: 50px;\n}\n.styles_rdw-link-dropdownOption__zwz_2 {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-link-dropdownPlaceholder___IW6R {\n  margin-left: 8px;\n}\n.styles_rdw-link-modal__jA2ci {\n  position: absolute;\n  top: 35px;\n  left: 5px;\n  display: flex;\n  flex-direction: column;\n  width: 235px;\n  height: 205px;\n  border: 1px solid #F1F1F1;\n  padding: 15px;\n  border-radius: 2px;\n  z-index: 100;\n  background: white;\n  box-shadow: 3px 3px 5px #BFBDBD;\n}\n.styles_rdw-link-modal-label__1D7tf {\n  font-size: 15px;\n}\n.styles_rdw-link-modal-input__BGVou {\n  margin-top: 5px;\n  border-radius: 2px;\n  border: 1px solid #F1F1F1;\n  height: 25px;\n  margin-bottom: 15px;\n  padding: 0 5px;\n}\n.styles_rdw-link-modal-input__BGVou:focus {\n  outline: none;\n}\n.styles_rdw-link-modal-buttonsection__1kr_h {\n  margin: 0 auto;\n}\n.styles_rdw-link-modal-target-option__1VIuX {\n  margin-bottom: 20px;\n}\n.styles_rdw-link-modal-target-option__1VIuX > span {\n  margin-left: 5px;\n}\n.styles_rdw-link-modal-btn__1t8A6 {\n  margin-left: 10px;\n  width: 75px;\n  height: 30px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  cursor: pointer;\n  background: white;\n  text-transform: capitalize;\n}\n.styles_rdw-link-modal-btn__1t8A6:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n}\n.styles_rdw-link-modal-btn__1t8A6:active {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-link-modal-btn__1t8A6:focus {\n  outline: none !important;\n}\n.styles_rdw-link-modal-btn__1t8A6:disabled {\n  background: #ece9e9;\n}\n.styles_rdw-link-dropdownoption__1E3ZT {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-history-dropdown__2FN6o {\n  width: 50px;\n}\n";
+var styles$a = { "rdw-link-wrapper": "styles_rdw-link-wrapper__3cfYc", "rdw-link-dropdown": "styles_rdw-link-dropdown__1Hi3q", "rdw-link-dropdownOption": "styles_rdw-link-dropdownOption__zwz_2", "rdw-link-dropdownPlaceholder": "styles_rdw-link-dropdownPlaceholder___IW6R", "rdw-link-modal": "styles_rdw-link-modal__jA2ci", "rdw-link-modal-label": "styles_rdw-link-modal-label__1D7tf", "rdw-link-modal-input": "styles_rdw-link-modal-input__BGVou", "rdw-link-modal-buttonsection": "styles_rdw-link-modal-buttonsection__1kr_h", "rdw-link-modal-target-option": "styles_rdw-link-modal-target-option__1VIuX", "rdw-link-modal-btn": "styles_rdw-link-modal-btn__1t8A6", "rdw-link-dropdownoption": "styles_rdw-link-dropdownoption__1E3ZT", "rdw-history-dropdown": "styles_rdw-history-dropdown__2FN6o" };
 styleInject(css$a);
 
 var Dropdown$7 = exports$2.Dropdown;
@@ -4380,17 +4389,17 @@ var LayoutComponent$5 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-link-modal', popupClassName),
+          className: classnames(styles$a['rdw-link-modal'], popupClassName),
           onClick: stopPropagation
         },
         React__default.createElement(
           'label',
-          { className: 'rdw-link-modal-label', htmlFor: 'linkTitle' },
+          { className: styles$a["rdw-link-modal-label"], htmlFor: 'linkTitle' },
           translations['components.controls.link.linkTitle']
         ),
         React__default.createElement('input', {
           id: 'linkTitle',
-          className: 'rdw-link-modal-input',
+          className: styles$a["rdw-link-modal-input"],
           onChange: this.updateValue,
           onBlur: this.updateValue,
           name: 'linkTitle',
@@ -4398,12 +4407,12 @@ var LayoutComponent$5 = function (_Component) {
         }),
         React__default.createElement(
           'label',
-          { className: 'rdw-link-modal-label', htmlFor: 'linkTarget' },
+          { className: styles$a["rdw-link-modal-label"], htmlFor: 'linkTarget' },
           translations['components.controls.link.linkTarget']
         ),
         React__default.createElement('input', {
           id: 'linkTarget',
-          className: 'rdw-link-modal-input',
+          className: styles$a["rdw-link-modal-input"],
           onChange: this.updateValue,
           onBlur: this.updateValue,
           name: 'linkTarget',
@@ -4411,7 +4420,7 @@ var LayoutComponent$5 = function (_Component) {
         }),
         React__default.createElement(
           'label',
-          { className: 'rdw-link-modal-target-option', htmlFor: 'openLinkInNewWindow' },
+          { className: styles$a["rdw-link-modal-target-option"], htmlFor: 'openLinkInNewWindow' },
           React__default.createElement('input', {
             id: 'openLinkInNewWindow',
             type: 'checkbox',
@@ -4427,11 +4436,11 @@ var LayoutComponent$5 = function (_Component) {
         ),
         React__default.createElement(
           'span',
-          { className: 'rdw-link-modal-buttonsection' },
+          { className: styles$a["rdw-link-modal-buttonsection"] },
           React__default.createElement(
             'button',
             {
-              className: 'rdw-link-modal-btn',
+              className: styles$a["rdw-link-modal-btn"],
               onClick: this.addLink,
               disabled: !linkTarget || !linkTitle
             },
@@ -4440,7 +4449,7 @@ var LayoutComponent$5 = function (_Component) {
           React__default.createElement(
             'button',
             {
-              className: 'rdw-link-modal-btn',
+              className: styles$a["rdw-link-modal-btn"],
               onClick: doCollapse
             },
             translations['generic.cancel']
@@ -4464,7 +4473,7 @@ var LayoutComponent$5 = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-link-wrapper', className), 'aria-label': 'rdw-link-control' },
+        { className: classnames(styles$a['rdw-link-wrapper'], className), 'aria-label': 'rdw-link-control' },
         options.indexOf('link') >= 0 && React__default.createElement(
           Option,
           {
@@ -4520,7 +4529,7 @@ var LayoutComponent$5 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: 'rdw-link-wrapper',
+          className: styles$a["rdw-link-wrapper"],
           'aria-haspopup': 'true',
           'aria-label': 'rdw-link-control',
           'aria-expanded': expanded,
@@ -4529,7 +4538,7 @@ var LayoutComponent$5 = function (_Component) {
         React__default.createElement(
           Dropdown$7,
           {
-            className: classnames('rdw-link-dropdown', className),
+            className: classnames(styles$a['rdw-link-dropdown'], className),
             optionWrapperClassName: classnames(dropdownClassName),
             onChange: onChange,
             expanded: expanded && !showModal,
@@ -4545,7 +4554,7 @@ var LayoutComponent$5 = function (_Component) {
             DropdownOption$6,
             {
               onClick: this.forceExpandAndShowModal,
-              className: classnames('rdw-link-dropdownoption', link.className),
+              className: classnames(styles$a['rdw-link-dropdownoption'], link.className),
               title: link.title || translations['components.controls.link.link']
             },
             React__default.createElement('img', {
@@ -4558,7 +4567,7 @@ var LayoutComponent$5 = function (_Component) {
             {
               onClick: this.removeLink,
               disabled: !currentState.link,
-              className: classnames('rdw-link-dropdownoption', unlink.className),
+              className: classnames(styles$a['rdw-link-dropdownoption'], unlink.className),
               title: unlink.title || translations['components.controls.link.unlink']
             },
             React__default.createElement('img', {
@@ -4770,6 +4779,7 @@ Link.propTypes = {
 };
 
 var css$b = ".styles_rdw-embedded-wrapper__crjO7 {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n.styles_rdw-embedded-modal__2aZQX {\n  position: absolute;\n  top: 35px;\n  left: 5px;\n  display: flex;\n  flex-direction: column;\n  width: 235px;\n  height: 180px;\n  border: 1px solid #F1F1F1;\n  padding: 15px;\n  border-radius: 2px;\n  z-index: 100;\n  background: white;\n  justify-content: space-between;\n  box-shadow: 3px 3px 5px #BFBDBD;\n}\n.styles_rdw-embedded-modal-header__2p1OS {\n  font-size: 15px;\n  display: flex;\n}\n.styles_rdw-embedded-modal-header-option__28vzF {\n  width: 50%;\n  cursor: pointer;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n.styles_rdw-embedded-modal-header-label__1W4pk {\n  width: 95px;\n  border: 1px solid #f1f1f1;\n  margin-top: 5px;\n  background: #6EB8D4;\n  border-bottom: 2px solid #0a66b7;\n}\n.styles_rdw-embedded-modal-link-section__3wW4V {\n  display: flex;\n  flex-direction: column;\n}\n.styles_rdw-embedded-modal-link-input__6yOT0 {\n  width: 88%;\n  height: 35px;\n  margin: 10px 0;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  font-size: 15px;\n  padding: 0 5px;\n}\n.styles_rdw-embedded-modal-link-input-wrapper__3qMH7 {\n  display: flex;\n  align-items: center;\n}\n.styles_rdw-embedded-modal-link-input__6yOT0:focus {\n  outline: none;\n}\n.styles_rdw-embedded-modal-btn-section__jea1c {\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-embedded-modal-btn__3j8YC {\n  margin: 0 3px;\n  width: 75px;\n  height: 30px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  cursor: pointer;\n  background: white;\n  text-transform: capitalize;\n}\n.styles_rdw-embedded-modal-btn__3j8YC:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n}\n.styles_rdw-embedded-modal-btn__3j8YC:active {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-embedded-modal-btn__3j8YC:focus {\n  outline: none !important;\n}\n.styles_rdw-embedded-modal-btn__3j8YC:disabled {\n  background: #ece9e9;\n}\n.styles_rdw-embedded-modal-size__3vBgk {\n  align-items: center;\n  display: flex;\n  margin: 8px 0;\n  justify-content: space-between;\n}\n.styles_rdw-embedded-modal-size-input__2CPz3 {\n  width: 80%;\n  height: 20px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  font-size: 12px;\n}\n.styles_rdw-embedded-modal-size-input__2CPz3:focus {\n  outline: none;\n}\n";
+var styles$b = { "rdw-embedded-wrapper": "styles_rdw-embedded-wrapper__crjO7", "rdw-embedded-modal": "styles_rdw-embedded-modal__2aZQX", "rdw-embedded-modal-header": "styles_rdw-embedded-modal-header__2p1OS", "rdw-embedded-modal-header-option": "styles_rdw-embedded-modal-header-option__28vzF", "rdw-embedded-modal-header-label": "styles_rdw-embedded-modal-header-label__1W4pk", "rdw-embedded-modal-link-section": "styles_rdw-embedded-modal-link-section__3wW4V", "rdw-embedded-modal-link-input": "styles_rdw-embedded-modal-link-input__6yOT0", "rdw-embedded-modal-link-input-wrapper": "styles_rdw-embedded-modal-link-input-wrapper__3qMH7", "rdw-embedded-modal-btn-section": "styles_rdw-embedded-modal-btn-section__jea1c", "rdw-embedded-modal-btn": "styles_rdw-embedded-modal-btn__3j8YC", "rdw-embedded-modal-size": "styles_rdw-embedded-modal-size__3vBgk", "rdw-embedded-modal-size-input": "styles_rdw-embedded-modal-size-input__2CPz3" };
 styleInject(css$b);
 
 var LayoutComponent$6 = function (_Component) {
@@ -4833,27 +4843,27 @@ var LayoutComponent$6 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-embedded-modal', popupClassName),
+          className: classnames(styles$b['rdw-embedded-modal'], popupClassName),
           onClick: stopPropagation
         },
         React__default.createElement(
           'div',
-          { className: 'rdw-embedded-modal-header' },
+          { className: styles$b["rdw-embedded-modal-header"] },
           React__default.createElement(
             'span',
-            { className: 'rdw-embedded-modal-header-option' },
+            { className: styles$b["rdw-embedded-modal-header-option"] },
             translations['components.controls.embedded.embeddedlink'],
-            React__default.createElement('span', { className: 'rdw-embedded-modal-header-label' })
+            React__default.createElement('span', { className: styles$b["rdw-embedded-modal-header-label"] })
           )
         ),
         React__default.createElement(
           'div',
-          { className: 'rdw-embedded-modal-link-section' },
+          { className: styles$b["rdw-embedded-modal-link-section"] },
           React__default.createElement(
             'span',
-            { className: 'rdw-embedded-modal-link-input-wrapper' },
+            { className: styles$b["rdw-embedded-modal-link-input-wrapper"] },
             React__default.createElement('input', {
-              className: 'rdw-embedded-modal-link-input',
+              className: styles$b["rdw-embedded-modal-link-input"],
               placeholder: translations['components.controls.embedded.enterlink'],
               onChange: this.updateValue,
               onBlur: this.updateValue,
@@ -4862,13 +4872,13 @@ var LayoutComponent$6 = function (_Component) {
             }),
             React__default.createElement(
               'span',
-              { className: 'rdw-image-mandatory-sign' },
+              { className: styles$b["rdw-image-mandatory-sign"] },
               '*'
             )
           ),
           React__default.createElement(
             'div',
-            { className: 'rdw-embedded-modal-size' },
+            { className: styles$b["rdw-embedded-modal-size"] },
             React__default.createElement(
               'span',
               null,
@@ -4877,12 +4887,12 @@ var LayoutComponent$6 = function (_Component) {
                 onBlur: this.updateValue,
                 value: height,
                 name: 'height',
-                className: 'rdw-embedded-modal-size-input',
+                className: styles$b["rdw-embedded-modal-size-input"],
                 placeholder: 'Height'
               }),
               React__default.createElement(
                 'span',
-                { className: 'rdw-image-mandatory-sign' },
+                { className: styles$b["rdw-image-mandatory-sign"] },
                 '*'
               )
             ),
@@ -4894,12 +4904,12 @@ var LayoutComponent$6 = function (_Component) {
                 onBlur: this.updateValue,
                 value: width,
                 name: 'width',
-                className: 'rdw-embedded-modal-size-input',
+                className: styles$b["rdw-embedded-modal-size-input"],
                 placeholder: 'Width'
               }),
               React__default.createElement(
                 'span',
-                { className: 'rdw-image-mandatory-sign' },
+                { className: styles$b["rdw-image-mandatory-sign"] },
                 '*'
               )
             )
@@ -4907,12 +4917,12 @@ var LayoutComponent$6 = function (_Component) {
         ),
         React__default.createElement(
           'span',
-          { className: 'rdw-embedded-modal-btn-section' },
+          { className: styles$b["rdw-embedded-modal-btn-section"] },
           React__default.createElement(
             'button',
             {
               type: 'button',
-              className: 'rdw-embedded-modal-btn',
+              className: styles$b["rdw-embedded-modal-btn"],
               onClick: this.onChange,
               disabled: !embeddedLink || !height || !width
             },
@@ -4922,7 +4932,7 @@ var LayoutComponent$6 = function (_Component) {
             'button',
             {
               type: 'button',
-              className: 'rdw-embedded-modal-btn',
+              className: styles$b["rdw-embedded-modal-btn"],
               onClick: doCollapse
             },
             translations['generic.cancel']
@@ -4945,7 +4955,7 @@ var LayoutComponent$6 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: 'rdw-embedded-wrapper',
+          className: styles$b["rdw-embedded-wrapper"],
           'aria-haspopup': 'true',
           'aria-expanded': expanded,
           'aria-label': 'rdw-embedded-control'
@@ -5068,6 +5078,7 @@ Embedded.propTypes = {
 };
 
 var css$c = ".styles_rdw-emoji-wrapper__2VWdc {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n.styles_rdw-emoji-modal__2RjKS {\n  overflow: auto;\n  position: absolute;\n  top: 35px;\n  left: 5px;\n  display: flex;\n  flex-wrap: wrap;\n  width: 235px;\n  height: 180px;\n  border: 1px solid #F1F1F1;\n  padding: 15px;\n  border-radius: 2px;\n  z-index: 100;\n  background: white;\n  box-shadow: 3px 3px 5px #BFBDBD;\n}\n.styles_rdw-emoji-icon__1fYYc {\n  margin: 2.5px;\n  height: 24px;\n  width: 24px;\n  cursor: pointer;\n  font-size: 22px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n";
+var styles$c = { "rdw-emoji-wrapper": "styles_rdw-emoji-wrapper__2VWdc", "rdw-emoji-modal": "styles_rdw-emoji-modal__2RjKS", "rdw-emoji-icon": "styles_rdw-emoji-icon__1fYYc" };
 styleInject(css$c);
 
 var LayoutComponent$7 = function (_Component) {
@@ -5103,7 +5114,7 @@ var LayoutComponent$7 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-emoji-modal', popupClassName),
+          className: classnames(styles$c['rdw-emoji-modal'], popupClassName),
           onClick: stopPropagation
         },
         emojis.map(function (emoji, index) {
@@ -5111,7 +5122,7 @@ var LayoutComponent$7 = function (_Component) {
             'span',
             {
               key: index,
-              className: 'rdw-emoji-icon',
+              className: styles$c["rdw-emoji-icon"],
               alt: '',
               onClick: _this2.onChange
             },
@@ -5135,7 +5146,7 @@ var LayoutComponent$7 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: 'rdw-emoji-wrapper',
+          className: styles$c["rdw-emoji-wrapper"],
           'aria-haspopup': 'true',
           'aria-label': 'rdw-emoji-control',
           'aria-expanded': expanded,
@@ -5260,19 +5271,21 @@ Emoji.propTypes = {
 };
 
 var css$d = ".styles_rdw-spinner__3fq_M {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  width: 100%;\n}\n.styles_rdw-spinner__3fq_M > div {\n  width: 12px;\n  height: 12px;\n  background-color: #333;\n\n  border-radius: 100%;\n  display: inline-block;\n  -webkit-animation: styles_sk-bouncedelay__2is2_ 1.4s infinite ease-in-out both;\n  animation: styles_sk-bouncedelay__2is2_ 1.4s infinite ease-in-out both;\n}\n.styles_rdw-spinner__3fq_M .styles_rdw-bounce1__1TUsR {\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s;\n}\n.styles_rdw-spinner__3fq_M .styles_rdw-bounce2__LB1Wi {\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s;\n}\n@-webkit-keyframes styles_sk-bouncedelay__2is2_ {\n  0%, 80%, 100% { -webkit-transform: scale(0) }\n  40% { -webkit-transform: scale(1.0) }\n}\n@keyframes styles_sk-bouncedelay__2is2_ {\n  0%, 80%, 100% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 40% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n  }\n}\n";
+var styles$d = { "rdw-spinner": "styles_rdw-spinner__3fq_M", "sk-bouncedelay": "styles_sk-bouncedelay__2is2_", "rdw-bounce1": "styles_rdw-bounce1__1TUsR", "rdw-bounce2": "styles_rdw-bounce2__LB1Wi" };
 styleInject(css$d);
 
 var Spinner = (function () {
   return React__default.createElement(
     'div',
-    { className: 'rdw-spinner' },
-    React__default.createElement('div', { className: 'rdw-bounce1' }),
-    React__default.createElement('div', { className: 'rdw-bounce2' }),
-    React__default.createElement('div', { className: 'rdw-bounce3' })
+    { className: styles$d["rdw-spinner"] },
+    React__default.createElement('div', { className: styles$d["rdw-bounce1"] }),
+    React__default.createElement('div', { className: styles$d["rdw-bounce2"] }),
+    React__default.createElement('div', { className: styles$d["rdw-bounce3"] })
   );
 });
 
 var css$e = ".styles_rdw-image-wrapper__2P_ik {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n.styles_rdw-image-modal__358GB {\n  position: absolute;\n  top: 35px;\n  left: 5px;\n  display: flex;\n  flex-direction: column;\n  width: 235px;\n  border: 1px solid #F1F1F1;\n  padding: 15px;\n  border-radius: 2px;\n  z-index: 100;\n  background: white;\n  box-shadow: 3px 3px 5px #BFBDBD;\n}\n.styles_rdw-image-modal-header__1zXZD {\n  font-size: 15px;\n  margin: 10px 0;\n  display: flex;\n}\n.styles_rdw-image-modal-header-option__3KDZU {\n  width: 50%;\n  cursor: pointer;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n.styles_rdw-image-modal-header-label__1w0Hh {\n  width: 80px;\n  background: #f1f1f1;\n  border: 1px solid #f1f1f1;\n  margin-top: 5px;\n}\n.styles_rdw-image-modal-header-label-highlighted__1siL8 {\n  background: #6EB8D4;\n  border-bottom: 2px solid #0a66b7;\n}\n.styles_rdw-image-modal-upload-option__34rnS {\n  width: 100%;\n  color: gray;\n  cursor: pointer;\n  display: flex;\n  border: none;\n  font-size: 15px;\n  align-items: center;\n  justify-content: center;\n  background-color: #f1f1f1;\n  outline: 2px dashed gray;\n  outline-offset: -10px;\n  margin: 10px 0;\n  padding: 9px 0;\n}\n.styles_rdw-image-modal-upload-option-highlighted__2oCkQ {\n  outline: 2px dashed #0a66b7;\n}\n.styles_rdw-image-modal-upload-option-label__3liaD {\n  cursor: pointer;\n  height: 100%;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 15px;\n}\n.styles_rdw-image-modal-upload-option-label__3liaD span{\n  padding: 0 20px;\n}\n.styles_rdw-image-modal-upload-option-image-preview__xOuVO {\n  max-width: 100%;\n  max-height: 200px;\n}\n.styles_rdw-image-modal-upload-option-input__2BsE- {\n\twidth: 0.1px;\n\theight: 0.1px;\n\topacity: 0;\n\toverflow: hidden;\n\tposition: absolute;\n\tz-index: -1;\n}\n.styles_rdw-image-modal-url-section__2RjXN {\n  display: flex;\n  align-items: center;\n}\n.styles_rdw-image-modal-url-input__krb1b {\n  width: 90%;\n  height: 35px;\n  margin: 15px 0 12px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  font-size: 15px;\n  padding: 0 5px;\n}\n.styles_rdw-image-modal-btn-section__1Vn_i {\n  margin: 10px auto 0;\n}\n.styles_rdw-image-modal-url-input__krb1b:focus {\n  outline: none;\n}\n.styles_rdw-image-modal-btn__2wJg_ {\n  margin: 0 5px;\n  width: 75px;\n  height: 30px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  cursor: pointer;\n  background: white;\n  text-transform: capitalize;\n}\n.styles_rdw-image-modal-btn__2wJg_:hover {\n  box-shadow: 1px 1px 0px #BFBDBD;\n}\n.styles_rdw-image-modal-btn__2wJg_:active {\n  box-shadow: 1px 1px 0px #BFBDBD inset;\n}\n.styles_rdw-image-modal-btn__2wJg_:focus {\n  outline: none !important;\n}\n.styles_rdw-image-modal-btn__2wJg_:disabled {\n  background: #ece9e9;\n}\n.styles_rdw-image-modal-spinner__OG7P5 {\n  position: absolute;\n  top: -3px;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0.5;\n}\n.styles_rdw-image-modal-alt-input__Rzgyn {\n  width: 70%;\n  height: 20px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  font-size: 12px;\n  margin-left: 5px;\n}\n.styles_rdw-image-modal-alt-input__Rzgyn:focus {\n  outline: none;\n}\n.styles_rdw-image-modal-alt-lbl__98fYj {\n  font-size: 12px;\n}\n.styles_rdw-image-modal-size__1UTkX {\n  align-items: center;\n  display: flex;\n  margin: 8px 0;\n  justify-content: space-between;\n}\n.styles_rdw-image-modal-size-input__3UJGL {\n  width: 40%;\n  height: 20px;\n  border: 1px solid #F1F1F1;\n  border-radius: 2px;\n  font-size: 12px;\n}\n.styles_rdw-image-modal-size-input__3UJGL:focus {\n  outline: none;\n}\n.styles_rdw-image-mandatory-sign__mvhvA {\n  color: red;\n  margin-left: 3px;\n  margin-right: 3px;\n}\n";
+var styles$e = { "rdw-image-wrapper": "styles_rdw-image-wrapper__2P_ik", "rdw-image-modal": "styles_rdw-image-modal__358GB", "rdw-image-modal-header": "styles_rdw-image-modal-header__1zXZD", "rdw-image-modal-header-option": "styles_rdw-image-modal-header-option__3KDZU", "rdw-image-modal-header-label": "styles_rdw-image-modal-header-label__1w0Hh", "rdw-image-modal-header-label-highlighted": "styles_rdw-image-modal-header-label-highlighted__1siL8", "rdw-image-modal-upload-option": "styles_rdw-image-modal-upload-option__34rnS", "rdw-image-modal-upload-option-highlighted": "styles_rdw-image-modal-upload-option-highlighted__2oCkQ", "rdw-image-modal-upload-option-label": "styles_rdw-image-modal-upload-option-label__3liaD", "rdw-image-modal-upload-option-image-preview": "styles_rdw-image-modal-upload-option-image-preview__xOuVO", "rdw-image-modal-upload-option-input": "styles_rdw-image-modal-upload-option-input__2BsE-", "rdw-image-modal-url-section": "styles_rdw-image-modal-url-section__2RjXN", "rdw-image-modal-url-input": "styles_rdw-image-modal-url-input__krb1b", "rdw-image-modal-btn-section": "styles_rdw-image-modal-btn-section__1Vn_i", "rdw-image-modal-btn": "styles_rdw-image-modal-btn__2wJg_", "rdw-image-modal-spinner": "styles_rdw-image-modal-spinner__OG7P5", "rdw-image-modal-alt-input": "styles_rdw-image-modal-alt-input__Rzgyn", "rdw-image-modal-alt-lbl": "styles_rdw-image-modal-alt-lbl__98fYj", "rdw-image-modal-size": "styles_rdw-image-modal-size__1UTkX", "rdw-image-modal-size-input": "styles_rdw-image-modal-size-input__3UJGL", "rdw-image-mandatory-sign": "styles_rdw-image-mandatory-sign__mvhvA" };
 styleInject(css$e);
 
 var LayoutComponent$8 = function (_Component) {
@@ -5438,32 +5451,32 @@ var LayoutComponent$8 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: classnames('rdw-image-modal', popupClassName),
+          className: classnames(styles$e['rdw-image-modal'], popupClassName),
           onClick: this.stopPropagation
         },
         React__default.createElement(
           'div',
-          { className: 'rdw-image-modal-header' },
+          { className: styles$e["rdw-image-modal-header"] },
           uploadEnabled && uploadCallback && React__default.createElement(
             'span',
             {
               onClick: this.showImageUploadOption,
-              className: 'rdw-image-modal-header-option'
+              className: styles$e["rdw-image-modal-header-option"]
             },
             translations['components.controls.image.fileUpload'],
             React__default.createElement('span', {
-              className: classnames('rdw-image-modal-header-label', { 'rdw-image-modal-header-label-highlighted': uploadHighlighted })
+              className: classnames(styles$e['rdw-image-modal-header-label'], defineProperty({}, styles$e['rdw-image-modal-header-label-highlighted'], uploadHighlighted))
             })
           ),
           urlEnabled && React__default.createElement(
             'span',
             {
               onClick: this.showImageURLOption,
-              className: 'rdw-image-modal-header-option'
+              className: styles$e["rdw-image-modal-header-option"]
             },
             translations['components.controls.image.byURL'],
             React__default.createElement('span', {
-              className: classnames('rdw-image-modal-header-label', { 'rdw-image-modal-header-label-highlighted': !uploadHighlighted })
+              className: classnames(styles$e['rdw-image-modal-header-label'], defineProperty({}, styles$e['rdw-image-modal-header-label-highlighted'], !uploadHighlighted))
             })
           )
         ),
@@ -5476,18 +5489,18 @@ var LayoutComponent$8 = function (_Component) {
               onDragEnter: this.onDragEnter,
               onDragOver: this.stopPropagation,
               onDrop: this.onImageDrop,
-              className: classnames('rdw-image-modal-upload-option', { 'rdw-image-modal-upload-option-highlighted': dragEnter })
+              className: classnames(styles$e['rdw-image-modal-upload-option'], defineProperty({}, styles$e['rdw-image-modal-upload-option-highlighted'], dragEnter))
             },
             React__default.createElement(
               'label',
               {
                 htmlFor: 'file',
-                className: 'rdw-image-modal-upload-option-label'
+                className: styles$e["rdw-image-modal-upload-option-label"]
               },
               previewImage && imgSrc ? React__default.createElement('img', {
                 src: imgSrc,
                 alt: imgSrc,
-                className: 'rdw-image-modal-upload-option-image-preview'
+                className: styles$e["rdw-image-modal-upload-option-image-preview"]
               }) : imgSrc || translations['components.controls.image.dropFileText']
             )
           ),
@@ -5496,13 +5509,13 @@ var LayoutComponent$8 = function (_Component) {
             id: 'file',
             accept: inputAccept,
             onChange: this.selectImage,
-            className: 'rdw-image-modal-upload-option-input'
+            className: styles$e["rdw-image-modal-upload-option-input"]
           })
         ) : React__default.createElement(
           'div',
-          { className: 'rdw-image-modal-url-section' },
+          { className: styles$e["rdw-image-modal-url-section"] },
           React__default.createElement('input', {
-            className: 'rdw-image-modal-url-input',
+            className: styles$e["rdw-image-modal-url-input"],
             placeholder: translations['components.controls.image.enterlink'],
             name: 'imgSrc',
             onChange: this.updateValue,
@@ -5511,16 +5524,16 @@ var LayoutComponent$8 = function (_Component) {
           }),
           React__default.createElement(
             'span',
-            { className: 'rdw-image-mandatory-sign' },
+            { className: styles$e["rdw-image-mandatory-sign"] },
             '*'
           )
         ),
         altConf.present && React__default.createElement(
           'div',
-          { className: 'rdw-image-modal-size' },
+          { className: styles$e["rdw-image-modal-size"] },
           React__default.createElement(
             'span',
-            { className: 'rdw-image-modal-alt-lbl' },
+            { className: styles$e["rdw-image-modal-alt-lbl"] },
             'Alt Text'
           ),
           React__default.createElement('input', {
@@ -5528,30 +5541,30 @@ var LayoutComponent$8 = function (_Component) {
             onBlur: this.updateValue,
             value: alt,
             name: 'alt',
-            className: 'rdw-image-modal-alt-input',
+            className: styles$e["rdw-image-modal-alt-input"],
             placeholder: 'alt'
           }),
           React__default.createElement(
             'span',
-            { className: 'rdw-image-mandatory-sign' },
+            { className: styles$e["rdw-image-mandatory-sign"] },
             altConf.mandatory && '*'
           )
         ),
         React__default.createElement(
           'div',
-          { className: 'rdw-image-modal-size' },
+          { className: styles$e["rdw-image-modal-size"] },
           '\u2195\xA0',
           React__default.createElement('input', {
             onChange: this.updateValue,
             onBlur: this.updateValue,
             value: height,
             name: 'height',
-            className: 'rdw-image-modal-size-input',
+            className: styles$e["rdw-image-modal-size-input"],
             placeholder: 'Height'
           }),
           React__default.createElement(
             'span',
-            { className: 'rdw-image-mandatory-sign' },
+            { className: styles$e["rdw-image-mandatory-sign"] },
             '*'
           ),
           '\xA0\u2194\xA0',
@@ -5560,22 +5573,22 @@ var LayoutComponent$8 = function (_Component) {
             onBlur: this.updateValue,
             value: width,
             name: 'width',
-            className: 'rdw-image-modal-size-input',
+            className: styles$e["rdw-image-modal-size-input"],
             placeholder: 'Width'
           }),
           React__default.createElement(
             'span',
-            { className: 'rdw-image-mandatory-sign' },
+            { className: styles$e["rdw-image-mandatory-sign"] },
             '*'
           )
         ),
         React__default.createElement(
           'span',
-          { className: 'rdw-image-modal-btn-section' },
+          { className: styles$e["rdw-image-modal-btn-section"] },
           React__default.createElement(
             'button',
             {
-              className: 'rdw-image-modal-btn',
+              className: styles$e["rdw-image-modal-btn"],
               onClick: this.addImageFromState,
               disabled: !imgSrc || !height || !width || altConf.mandatory && !alt
             },
@@ -5584,7 +5597,7 @@ var LayoutComponent$8 = function (_Component) {
           React__default.createElement(
             'button',
             {
-              className: 'rdw-image-modal-btn',
+              className: styles$e["rdw-image-modal-btn"],
               onClick: doCollapse
             },
             translations['generic.cancel']
@@ -5592,7 +5605,7 @@ var LayoutComponent$8 = function (_Component) {
         ),
         showImageLoading ? React__default.createElement(
           'div',
-          { className: 'rdw-image-modal-spinner' },
+          { className: styles$e["rdw-image-modal-spinner"] },
           React__default.createElement(Spinner, null)
         ) : undefined
       );
@@ -5612,7 +5625,7 @@ var LayoutComponent$8 = function (_Component) {
       return React__default.createElement(
         'div',
         {
-          className: 'rdw-image-wrapper',
+          className: styles$e["rdw-image-wrapper"],
           'aria-haspopup': 'true',
           'aria-expanded': expanded,
           'aria-label': 'rdw-image-control'
@@ -5740,6 +5753,7 @@ ImageControl.propTypes = {
 };
 
 var css$f = ".styles_rdw-remove-wrapper__2Y1Ai {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n  position: relative;\n}\n";
+var styles$f = { "rdw-remove-wrapper": "styles_rdw-remove-wrapper__2Y1Ai" };
 styleInject(css$f);
 
 var RemoveComponent = function RemoveComponent(_ref) {
@@ -5752,7 +5766,7 @@ var RemoveComponent = function RemoveComponent(_ref) {
 
   return React__default.createElement(
     'div',
-    { className: 'rdw-remove-wrapper', 'aria-label': 'rdw-remove-control' },
+    { className: styles$f["rdw-remove-wrapper"], 'aria-label': 'rdw-remove-control' },
     React__default.createElement(
       Option,
       {
@@ -5876,6 +5890,7 @@ Remove.propTypes = {
 };
 
 var css$g = ".styles_rdw-history-wrapper__1oSed {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-history-dropdownoption__16x1p {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-history-dropdown__1Hdu9 {\n  width: 50px;\n}\n";
+var styles$g = { "rdw-history-wrapper": "styles_rdw-history-wrapper__1oSed", "rdw-history-dropdownoption": "styles_rdw-history-dropdownoption__16x1p", "rdw-history-dropdown": "styles_rdw-history-dropdown__1Hdu9" };
 styleInject(css$g);
 
 var Dropdown$8 = exports$2.Dropdown;
@@ -5925,7 +5940,7 @@ var History = function (_Component) {
       return React__default.createElement(
         Dropdown$8,
         {
-          className: classnames('rdw-history-dropdown', className),
+          className: classnames(styles$g['rdw-history-dropdown'], className),
           optionWrapperClassName: classnames(dropdownClassName),
           expanded: expanded,
           doExpand: doExpand,
@@ -5944,7 +5959,7 @@ var History = function (_Component) {
             value: 'undo',
             onClick: this.onChange,
             disabled: undoDisabled,
-            className: classnames('rdw-history-dropdownoption', undo.className),
+            className: classnames(styles$g['rdw-history-dropdownoption'], undo.className),
             title: undo.title || translations['components.controls.history.undo']
           },
           React__default.createElement('img', {
@@ -5958,7 +5973,7 @@ var History = function (_Component) {
             value: 'redo',
             onClick: this.onChange,
             disabled: redoDisabled,
-            className: classnames('rdw-history-dropdownoption', redo.className),
+            className: classnames(styles$g['rdw-history-dropdownoption'], redo.className),
             title: redo.title || translations['components.controls.history.redo']
           },
           React__default.createElement('img', {
@@ -5984,7 +5999,7 @@ var History = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: classnames('rdw-history-wrapper', className), 'aria-label': 'rdw-history-control' },
+        { className: classnames(styles$g['rdw-history-wrapper'], className), 'aria-label': 'rdw-history-control' },
         options.indexOf('undo') >= 0 && React__default.createElement(
           Option,
           {
@@ -6173,6 +6188,7 @@ module.exports = exports$3;
 var openlink = "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20width%3D%2215px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2015%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3Eopenlink%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22openlink%22%20fill%3D%22%23000000%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Capa_1%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M14.0715845%2C0%20L8.91533451%2C0%20C8.40565141%2C0%207.99103873%2C0.414665493%207.99103873%2C0.924295775%20C7.99103873%2C1.43392606%208.40565141%2C1.84859155%208.91533451%2C1.84859155%20L11.8401761%2C1.84859155%20L6.96121479%2C6.7275%20C6.7865493%2C6.90205986%206.69042254%2C7.13413732%206.69042254%2C7.38110915%20C6.69042254%2C7.62808099%206.78649648%2C7.86010563%206.96110915%2C8.03450704%20C7.13572183%2C8.20927817%207.36774648%2C8.30545775%207.61471831%2C8.30545775%20C7.86158451%2C8.30545775%208.09371479%2C8.20933099%208.26838028%2C8.03466549%20L13.1472887%2C3.15570423%20L13.1472887%2C6.08054577%20C13.1472887%2C6.59017606%2013.5619542%2C7.00484155%2014.0715845%2C7.00484155%20C14.5812148%2C7.00484155%2014.9958803%2C6.59017606%2014.9958803%2C6.08054577%20L14.9958803%2C0.924295775%20C14.9958803%2C0.414665493%2014.5812148%2C0%2014.0715845%2C0%20L14.0715845%2C0%20Z%22%20id%3D%22Shape%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M10.6234331%2C13.4113732%20L1.58450704%2C13.4113732%20L1.58450704%2C4.37244718%20L8.38262324%2C4.37244718%20L9.96713028%2C2.78794014%20L0.792253521%2C2.78794014%20C0.35471831%2C2.78794014%200%2C3.14265845%200%2C3.58019366%20L0%2C14.2036268%20C0%2C14.641162%200.35471831%2C14.9958803%200.792253521%2C14.9958803%20L11.4156866%2C14.9958803%20C11.8532218%2C14.9958803%2012.2079401%2C14.641162%2012.2079401%2C14.2036268%20L12.2079401%2C5.02875%20L10.6234331%2C6.61325704%20L10.6234331%2C13.4113732%20L10.6234331%2C13.4113732%20Z%22%20id%3D%22Shape%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E";
 
 var css$h = ".styles_rdw-link-decorator-wrapper__bF3_U {\n  position: relative;\n}\n.styles_rdw-link-decorator-icon__vEEy1 {\n  position: absolute;\n  left: 40%;\n  top: 0;\n  cursor: pointer;\n  background-color: white;\n}\n";
+var styles$h = { "rdw-link-decorator-wrapper": "styles_rdw-link-decorator-wrapper__bF3_U", "rdw-link-decorator-icon": "styles_rdw-link-decorator-icon__vEEy1" };
 styleInject(css$h);
 
 function findLinkEntities(contentBlock, callback, contentState) {
@@ -6240,7 +6256,7 @@ function getLinkComponent(config) {
         return React__default.createElement(
           'span',
           {
-            className: 'rdw-link-decorator-wrapper',
+            className: styles$h["rdw-link-decorator-wrapper"],
             onMouseEnter: this.toggleShowPopOver,
             onMouseLeave: this.toggleShowPopOver
           },
@@ -6253,7 +6269,7 @@ function getLinkComponent(config) {
             src: openlink,
             alt: '',
             onClick: this.openLink,
-            className: 'rdw-link-decorator-icon'
+            className: styles$h["rdw-link-decorator-icon"]
           }) : undefined
         );
       }
@@ -6274,6 +6290,7 @@ var getLinkDecorator = (function (config) {
 });
 
 var css$i = ".styles_rdw-mention-link__2J4f8 {\n  text-decoration: none;\n  color: #1236ff;\n  background-color: #f0fbff;\n  padding: 1px 2px;\n  border-radius: 2px;\n}\n";
+var styles$i = { "rdw-mention-link": "styles_rdw-mention-link__2J4f8" };
 styleInject(css$i);
 
 var Mention = function Mention(className) {
@@ -6300,7 +6317,7 @@ var _initialiseProps = function _initialiseProps() {
 
       return React__default.createElement(
         'a',
-        { href: url || value, className: classnames('rdw-mention-link', className) },
+        { href: url || value, className: classnames(styles$i['rdw-mention-link'], className) },
         children
       );
     };
@@ -6366,6 +6383,7 @@ function addMention(editorState, onChange, separator, trigger, suggestion) {
 }
 
 var css$j = ".styles_rdw-suggestion-wrapper__3o4V4 {\n  position: relative;\n}\n.styles_rdw-suggestion-dropdown__3tHPB {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  border: 1px solid #F1F1F1;\n  min-width: 100px;\n  max-height: 150px;\n  overflow: auto;\n  background: white;\n  z-index: 100;\n}\n.styles_rdw-suggestion-option__2Tpvt {\n  padding: 7px 5px;\n  border-bottom: 1px solid #f1f1f1;\n}\n.styles_rdw-suggestion-option-active__1mrlR {\n  background-color: #F1F1F1;\n}\n";
+var styles$j = { "rdw-suggestion-wrapper": "styles_rdw-suggestion-wrapper__3o4V4", "rdw-suggestion-dropdown": "styles_rdw-suggestion-dropdown__3tHPB", "rdw-suggestion-option": "styles_rdw-suggestion-option__2Tpvt", "rdw-suggestion-option-active": "styles_rdw-suggestion-option-active__1mrlR" };
 styleInject(css$j);
 
 var Suggestion = function Suggestion(config) {
@@ -6596,7 +6614,7 @@ function getSuggestionComponent() {
         return React__default.createElement(
           'span',
           {
-            className: 'rdw-suggestion-wrapper',
+            className: styles$j["rdw-suggestion-wrapper"],
             ref: this.setSuggestionReference,
             onClick: config.modalHandler.onSuggestionClick,
             'aria-haspopup': 'true',
@@ -6610,7 +6628,7 @@ function getSuggestionComponent() {
           showSuggestions && React__default.createElement(
             'span',
             {
-              className: classnames('rdw-suggestion-dropdown', dropdownClassName),
+              className: classnames(styles$j['rdw-suggestion-dropdown'], dropdownClassName),
               contentEditable: 'false',
               suppressContentEditableWarning: true,
               style: this.state.style,
@@ -6626,7 +6644,7 @@ function getSuggestionComponent() {
                   'data-index': index,
                   onMouseEnter: _this2.onOptionMouseEnter,
                   onMouseLeave: _this2.onOptionMouseLeave,
-                  className: classnames('rdw-suggestion-option', optionClassName, { 'rdw-suggestion-option-active': index === activeOption })
+                  className: classnames(styles$j['rdw-suggestion-option'], optionClassName, defineProperty({}, styles$j['rdw-suggestion-option-active'], index === activeOption))
                 },
                 suggestion.text
               );
@@ -6652,6 +6670,7 @@ var exports$4 = getDecorators;
 module.exports = exports$4;
 
 var css$k = ".styles_rdw-hashtag-link__1n6w2 {\n  text-decoration: none;\n  color: #1236ff;\n  background-color: #f0fbff;\n  padding: 1px 2px;\n  border-radius: 2px;\n}\n";
+var styles$k = { "rdw-hashtag-link": "styles_rdw-hashtag-link__1n6w2" };
 styleInject(css$k);
 
 var Hashtag = function Hashtag(config) {
@@ -6668,7 +6687,7 @@ var Hashtag = function Hashtag(config) {
       var text = children[0].props.text;
       return React__default.createElement(
         'a',
-        { href: text, className: classnames('rdw-hashtag-link', className) },
+        { href: text, className: classnames(styles$k['rdw-hashtag-link'], className) },
         children
       );
     };
@@ -6746,6 +6765,7 @@ Embed.propTypes = {
 };
 
 var css$l = ".styles_rdw-image-alignment-options-popup__1ruIr {\n  position: absolute;;\n  background: white;\n  display: flex;\n  padding: 5px 2px;\n  border-radius: 2px;\n  border: 1px solid #F1F1F1;\n  width: 105px;\n  cursor: pointer;\n  z-index: 100;\n}\n.styles_rdw-alignment-option-left__UGnzg {\n  justify-content: flex-start;\n}\n.styles_rdw-image-alignment-option__1aVzX {\n  height: 15px;\n  width: 15px;\n  min-width: 15px;\n}\n.styles_rdw-image-alignment__BStBO {\n  position: relative;\n}\n.styles_rdw-image-imagewrapper__3kNAy {\n  position: relative;\n}\n.styles_rdw-image-center__1LQ5r {\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-image-left__Evna0 {\n  display: flex;\n}\n.styles_rdw-image-right__1XEF0 {\n  display: flex;\n  justify-content: flex-end;\n}\n.styles_rdw-image-alignment-options-popup-right__27Xye {\n  right: 0;\n}\n";
+var styles$l = { "rdw-image-alignment-options-popup": "styles_rdw-image-alignment-options-popup__1ruIr", "rdw-alignment-option-left": "styles_rdw-alignment-option-left__UGnzg", "rdw-image-alignment-option": "styles_rdw-image-alignment-option__1aVzX", "rdw-image-alignment": "styles_rdw-image-alignment__BStBO", "rdw-image-imagewrapper": "styles_rdw-image-imagewrapper__3kNAy", "rdw-image-center": "styles_rdw-image-center__1LQ5r", "rdw-image-left": "styles_rdw-image-left__Evna0", "rdw-image-right": "styles_rdw-image-right__1XEF0", "rdw-image-alignment-options-popup-right": "styles_rdw-image-alignment-options-popup-right__27Xye" };
 styleInject(css$l);
 
 var getImageComponent = function getImageComponent(config) {
@@ -6798,15 +6818,13 @@ var getImageComponent = function getImageComponent(config) {
         return React__default.createElement(
           'div',
           {
-            className: classnames('rdw-image-alignment-options-popup', {
-              'rdw-image-alignment-options-popup-right': alignment === 'right'
-            })
+            className: classnames(styles$l['rdw-image-alignment-options-popup'], defineProperty({}, styles$l['rdw-image-alignment-options-popup-right'], alignment === 'right'))
           },
           React__default.createElement(
             Option,
             {
               onClick: this.setEntityAlignmentLeft,
-              className: 'rdw-image-alignment-option'
+              className: styles$l["rdw-image-alignment-option"]
             },
             'L'
           ),
@@ -6814,7 +6832,7 @@ var getImageComponent = function getImageComponent(config) {
             Option,
             {
               onClick: this.setEntityAlignmentCenter,
-              className: 'rdw-image-alignment-option'
+              className: styles$l["rdw-image-alignment-option"]
             },
             'C'
           ),
@@ -6822,7 +6840,7 @@ var getImageComponent = function getImageComponent(config) {
             Option,
             {
               onClick: this.setEntityAlignmentRight,
-              className: 'rdw-image-alignment-option'
+              className: styles$l["rdw-image-alignment-option"]
             },
             'R'
           )
@@ -6831,6 +6849,8 @@ var getImageComponent = function getImageComponent(config) {
     }, {
       key: 'render',
       value: function render() {
+        var _classNames2;
+
         var _props = this.props,
             block = _props.block,
             contentState = _props.contentState;
@@ -6852,15 +6872,11 @@ var getImageComponent = function getImageComponent(config) {
           {
             onMouseEnter: this.toggleHovered,
             onMouseLeave: this.toggleHovered,
-            className: classnames('rdw-image-alignment', {
-              'rdw-image-left': alignment === 'left',
-              'rdw-image-right': alignment === 'right',
-              'rdw-image-center': !alignment || alignment === 'none'
-            })
+            className: classnames(styles$l['rdw-image-alignment'], (_classNames2 = {}, defineProperty(_classNames2, styles$l['rdw-image-left'], alignment === 'left'), defineProperty(_classNames2, styles$l['rdw-image-right'], alignment === 'right'), defineProperty(_classNames2, styles$l['rdw-image-center'], !alignment || alignment === 'none'), _classNames2))
           },
           React__default.createElement(
             'span',
-            { className: 'rdw-image-imagewrapper' },
+            { className: styles$l["rdw-image-imagewrapper"] },
             React__default.createElement('img', {
               src: src,
               alt: alt,
@@ -8264,6 +8280,7 @@ var exports$6 = {
 module.exports = exports$6;
 
 var css$m = ".styles_rdw-editor-main__38CMd {\n  height: 100%;\n  overflow: auto;\n  box-sizing: border-box;\n}\n.styles_rdw-editor-toolbar__2kYhf {\n  padding: 6px 5px 0;\n  border-radius: 2px;\n  border: 1px solid #F1F1F1;\n  display: flex;\n  justify-content: flex-start;\n  background: white;\n  flex-wrap: wrap;\n  font-size: 15px;\n  margin-bottom: 5px;\n  user-select: none;\n}\n.styles_public-DraftStyleDefault-block__1XRmq {\n  margin: 1em 0;\n}\n.styles_rdw-editor-wrapper__eSweN:focus {\n  outline: none;\n}\n.styles_rdw-editor-wrapper__eSweN {\n  box-sizing: content-box;\n}\n.styles_rdw-editor-main__38CMd blockquote {\n  border-left: 5px solid #f1f1f1;\n  padding-left: 5px;\n}\n.styles_rdw-editor-main__38CMd pre {\n  background: #f1f1f1;\n  border-radius: 3px;\n  padding: 1px 10px;\n}";
+var styles$m = { "rdw-editor-main": "styles_rdw-editor-main__38CMd", "rdw-editor-toolbar": "styles_rdw-editor-toolbar__2kYhf", "public-DraftStyleDefault-block": "styles_public-DraftStyleDefault-block__1XRmq", "rdw-editor-wrapper": "styles_rdw-editor-wrapper__eSweN" };
 styleInject(css$m);
 
 var css$n = "/**\n * Draft v0.9.1\n *\n * Copyright (c) 2013-present, Facebook, Inc.\n * All rights reserved.\n *\n * This source code is licensed under the BSD-style license found in the\n * LICENSE file in the root directory of this source tree. An additional grant\n * of patent rights can be found in the PATENTS file in the same directory.\n */\n.Draft_DraftEditor-editorContainer__hKFaU,.Draft_DraftEditor-root__1WYTw,.Draft_public-DraftEditor-content__VXUWm{height:inherit;text-align:initial}.Draft_public-DraftEditor-content__VXUWm[contenteditable=true]{-webkit-user-modify:read-write-plaintext-only}.Draft_DraftEditor-root__1WYTw{position:relative}.Draft_DraftEditor-editorContainer__hKFaU{background-color:rgba(255,255,255,0);border-left:.1px solid transparent;position:relative;z-index:1}.Draft_public-DraftEditor-block__2cafY{position:relative}.Draft_DraftEditor-alignLeft__3lNbs .Draft_public-DraftStyleDefault-block__3Lu8-{text-align:left}.Draft_DraftEditor-alignLeft__3lNbs .Draft_public-DraftEditorPlaceholder-root__36nUp{left:0;text-align:left}.Draft_DraftEditor-alignCenter__1hvvX .Draft_public-DraftStyleDefault-block__3Lu8-{text-align:center}.Draft_DraftEditor-alignCenter__1hvvX .Draft_public-DraftEditorPlaceholder-root__36nUp{margin:0 auto;text-align:center;width:100%}.Draft_DraftEditor-alignRight__1151X .Draft_public-DraftStyleDefault-block__3Lu8-{text-align:right}.Draft_DraftEditor-alignRight__1151X .Draft_public-DraftEditorPlaceholder-root__36nUp{right:0;text-align:right}.Draft_public-DraftEditorPlaceholder-root__36nUp{color:#9197a3;position:absolute;z-index:0}.Draft_public-DraftEditorPlaceholder-hasFocus__3Qh7K{color:#bdc1c9}.Draft_DraftEditorPlaceholder-hidden__3DJc8{display:none}.Draft_public-DraftStyleDefault-block__3Lu8-{position:relative;white-space:pre-wrap}.Draft_public-DraftStyleDefault-ltr__2W1_3{direction:ltr;text-align:left}.Draft_public-DraftStyleDefault-rtl__1tJFw{direction:rtl;text-align:right}.Draft_public-DraftStyleDefault-listLTR__rDjox{direction:ltr}.Draft_public-DraftStyleDefault-listRTL__gxCuZ{direction:rtl}.Draft_public-DraftStyleDefault-ol__3K1jn,.Draft_public-DraftStyleDefault-ul__2cCb1{margin:16px 0;padding:0}.Draft_public-DraftStyleDefault-depth0__3Uz6x.Draft_public-DraftStyleDefault-listLTR__rDjox{margin-left:1.5em}.Draft_public-DraftStyleDefault-depth0__3Uz6x.Draft_public-DraftStyleDefault-listRTL__gxCuZ{margin-right:1.5em}.Draft_public-DraftStyleDefault-depth1__MF_WX.Draft_public-DraftStyleDefault-listLTR__rDjox{margin-left:3em}.Draft_public-DraftStyleDefault-depth1__MF_WX.Draft_public-DraftStyleDefault-listRTL__gxCuZ{margin-right:3em}.Draft_public-DraftStyleDefault-depth2__1U5jR.Draft_public-DraftStyleDefault-listLTR__rDjox{margin-left:4.5em}.Draft_public-DraftStyleDefault-depth2__1U5jR.Draft_public-DraftStyleDefault-listRTL__gxCuZ{margin-right:4.5em}.Draft_public-DraftStyleDefault-depth3__1VV0y.Draft_public-DraftStyleDefault-listLTR__rDjox{margin-left:6em}.Draft_public-DraftStyleDefault-depth3__1VV0y.Draft_public-DraftStyleDefault-listRTL__gxCuZ{margin-right:6em}.Draft_public-DraftStyleDefault-depth4__3V6pq.Draft_public-DraftStyleDefault-listLTR__rDjox{margin-left:7.5em}.Draft_public-DraftStyleDefault-depth4__3V6pq.Draft_public-DraftStyleDefault-listRTL__gxCuZ{margin-right:7.5em}.Draft_public-DraftStyleDefault-unorderedListItem__2Ljzs{list-style-type:square;position:relative}.Draft_public-DraftStyleDefault-unorderedListItem__2Ljzs.Draft_public-DraftStyleDefault-depth0__3Uz6x{list-style-type:disc}.Draft_public-DraftStyleDefault-unorderedListItem__2Ljzs.Draft_public-DraftStyleDefault-depth1__MF_WX{list-style-type:circle}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC{list-style-type:none;position:relative}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-listLTR__rDjox:before{left:-36px;position:absolute;text-align:right;width:30px}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-listRTL__gxCuZ:before{position:absolute;right:-36px;text-align:left;width:30px}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC:before{content:counter(ol0) \". \";counter-increment:ol0}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-depth1__MF_WX:before{content:counter(ol1) \". \";counter-increment:ol1}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-depth2__1U5jR:before{content:counter(ol2) \". \";counter-increment:ol2}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-depth3__1VV0y:before{content:counter(ol3) \". \";counter-increment:ol3}.Draft_public-DraftStyleDefault-orderedListItem__qqqcC.Draft_public-DraftStyleDefault-depth4__3V6pq:before{content:counter(ol4) \". \";counter-increment:ol4}.Draft_public-DraftStyleDefault-depth0__3Uz6x.Draft_public-DraftStyleDefault-reset__2KxZW{counter-reset:ol0}.Draft_public-DraftStyleDefault-depth1__MF_WX.Draft_public-DraftStyleDefault-reset__2KxZW{counter-reset:ol1}.Draft_public-DraftStyleDefault-depth2__1U5jR.Draft_public-DraftStyleDefault-reset__2KxZW{counter-reset:ol2}.Draft_public-DraftStyleDefault-depth3__1VV0y.Draft_public-DraftStyleDefault-reset__2KxZW{counter-reset:ol3}.Draft_public-DraftStyleDefault-depth4__3V6pq.Draft_public-DraftStyleDefault-reset__2KxZW{counter-reset:ol4}\n";
@@ -8386,7 +8403,7 @@ var WysiwygEditor = function (_Component) {
         "div",
         {
           id: this.wrapperId,
-          className: classnames(wrapperClassName, "rdw-editor-wrapper"),
+          className: classnames(wrapperClassName, styles$m["rdw-editor-wrapper"]),
           style: wrapperStyle,
           onClick: this.modalHandler.onEditorClick,
           onBlur: this.onWrapperBlur,
@@ -8395,7 +8412,7 @@ var WysiwygEditor = function (_Component) {
         !toolbarHidden && React__default.createElement(
           "div",
           {
-            className: classnames("rdw-editor-toolbar", toolbarClassName),
+            className: classnames(styles$m["rdw-editor-toolbar"], toolbarClassName),
             style: _extends({
               visibility: toolbarShow ? "visible" : "hidden"
             }, toolbarStyle),
@@ -8420,7 +8437,7 @@ var WysiwygEditor = function (_Component) {
           "div",
           {
             ref: this.setWrapperReference,
-            className: classnames(editorClassName, "rdw-editor-main"),
+            className: classnames(editorClassName, styles$m["rdw-editor-main"]),
             style: editorStyle,
             onClick: this.focusEditor,
             onFocus: this.onEditorFocus,

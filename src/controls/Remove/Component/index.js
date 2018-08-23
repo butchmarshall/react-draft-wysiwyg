@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Option from '../../../components/Option';
-import './styles.css';
+import styles from './styles.css';
 
 const RemoveComponent = ({ config, onChange, translations }) => {
   const { icon, className, title } = config;
   return (
-    <div className="rdw-remove-wrapper" aria-label="rdw-remove-control">
+    <div className={styles["rdw-remove-wrapper"]} aria-label="rdw-remove-control">
       <Option
         className={classNames(className)}
         onClick={onChange}

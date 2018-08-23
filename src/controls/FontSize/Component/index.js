@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import DropdownComponents from '../../../components/Dropdown';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -54,9 +54,9 @@ export default class LayoutComponent extends Component {
     currentFontSize = currentFontSize ||
       (options && options.indexOf(defaultFontSize) >= 0 && defaultFontSize);
     return (
-      <div className="rdw-fontsize-wrapper" aria-label="rdw-font-size-control">
+      <div className={styles["rdw-fontsize-wrapper"]} aria-label="rdw-font-size-control">
         <Dropdown
-          className={classNames('rdw-fontsize-dropdown', className)}
+          className={classNames(styles['rdw-fontsize-dropdown'], className)}
           optionWrapperClassName={classNames(dropdownClassName)}
           onChange={onChange}
           expanded={expanded}
@@ -72,7 +72,7 @@ export default class LayoutComponent extends Component {
           {
             options.map((size, index) =>
               (<DropdownOption
-                className="rdw-fontsize-option"
+                className={styles["rdw-fontsize-option"]}
                 active={currentFontSize === size}
                 value={size}
                 key={index}
