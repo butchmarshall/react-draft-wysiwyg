@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import Option from '../../../components/Option';
 import DropdownComponents from '../../../components/Dropdown';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -53,7 +53,7 @@ class LayoutComponent extends Component {
   renderFlat(blocks: Array<Object>): void {
     const { config: { className }, onChange, currentState: { blockType } } = this.props;
     return (
-      <div className={classNames('rdw-inline-wrapper', className)}>
+      <div className={classNames(styles['rdw-inline-wrapper'], className)}>
         {
           blocks.map((block, index) =>
             (<Option
@@ -85,9 +85,9 @@ class LayoutComponent extends Component {
     const currentBlockData = blockTypes.filter(blk => blk.label === blockType);
     const currentLabel = currentBlockData && currentBlockData[0] && currentBlockData[0].displayName;
     return (
-      <div className="rdw-block-wrapper" aria-label="rdw-block-control">
+      <div className={styles["rdw-block-wrapper"]} aria-label="rdw-block-control">
         <Dropdown
-          className={classNames('rdw-block-dropdown', className)}
+          className={classNames(styles['rdw-block-dropdown'], className)}
           optionWrapperClassName={classNames(dropdownClassName)}
           onChange={onChange}
           expanded={expanded}

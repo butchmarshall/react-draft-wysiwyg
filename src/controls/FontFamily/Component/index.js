@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import DropdownComponents from '../../../components/Dropdown';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -55,9 +55,9 @@ class LayoutComponent extends Component {
         options.some(opt => opt.toLowerCase() === defaultFontFamily.toLowerCase()) &&
         defaultFontFamily);
     return (
-      <div className="rdw-fontfamily-wrapper" aria-label="rdw-font-family-control">
+      <div className={styles["rdw-fontfamily-wrapper"]} aria-label="rdw-font-family-control">
         <Dropdown
-          className={classNames('rdw-fontfamily-dropdown', className)}
+          className={classNames(styles['rdw-fontfamily-dropdown'], className)}
           optionWrapperClassName={classNames('rdw-fontfamily-optionwrapper', dropdownClassName)}
           onChange={onChange}
           expanded={expanded}
@@ -66,7 +66,7 @@ class LayoutComponent extends Component {
           onExpandEvent={onExpandEvent}
           title={title || translations['components.controls.fontfamily.fontfamily']}
         >
-          <span className="rdw-fontfamily-placeholder">
+          <span className={styles["rdw-fontfamily-placeholder"]}>
             {currentFontFamily || translations['components.controls.fontfamily.fontfamily']}
           </span>
           {

@@ -8,7 +8,7 @@ import { stopPropagation } from '../../../utils/common';
 import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import DropdownComponents from '../../../components/Dropdown';
-import './styles.css';
+import styles from './styles.css';
 
 const Dropdown = DropdownComponents.Dropdown;
 const DropdownOption = DropdownComponents.DropdownOption;
@@ -101,32 +101,32 @@ class LayoutComponent extends Component {
     const { linkTitle, linkTarget, linkTargetOption } = this.state;
     return (
       <div
-        className={classNames('rdw-link-modal', popupClassName)}
+        className={classNames(styles['rdw-link-modal'], popupClassName)}
         onClick={stopPropagation}
       >
-        <label className="rdw-link-modal-label" htmlFor="linkTitle">
+        <label className={styles["rdw-link-modal-label"]} htmlFor="linkTitle">
           {translations['components.controls.link.linkTitle']}
         </label>
         <input
           id="linkTitle"
-          className="rdw-link-modal-input"
+          className={styles["rdw-link-modal-input"]}
           onChange={this.updateValue}
           onBlur={this.updateValue}
           name="linkTitle"
           value={linkTitle}
         />
-        <label className="rdw-link-modal-label" htmlFor="linkTarget">
+        <label className={styles["rdw-link-modal-label"]} htmlFor="linkTarget">
           {translations['components.controls.link.linkTarget']}
         </label>
         <input
           id="linkTarget"
-          className="rdw-link-modal-input"
+          className={styles["rdw-link-modal-input"]}
           onChange={this.updateValue}
           onBlur={this.updateValue}
           name="linkTarget"
           value={linkTarget}
         />
-        <label className="rdw-link-modal-target-option" htmlFor="openLinkInNewWindow">
+        <label className={styles["rdw-link-modal-target-option"]} htmlFor="openLinkInNewWindow">
           <input
             id="openLinkInNewWindow"
             type="checkbox"
@@ -136,16 +136,16 @@ class LayoutComponent extends Component {
           />
           <span>{translations['components.controls.link.linkTargetOption']}</span>
         </label>
-        <span className="rdw-link-modal-buttonsection">
+        <span className={styles["rdw-link-modal-buttonsection"]}>
           <button
-            className="rdw-link-modal-btn"
+            className={styles["rdw-link-modal-btn"]}
             onClick={this.addLink}
             disabled={!linkTarget || !linkTitle}
           >
             {translations['generic.add']}
           </button>
           <button
-            className="rdw-link-modal-btn"
+            className={styles["rdw-link-modal-btn"]}
             onClick={doCollapse}
           >
             {translations['generic.cancel']}
@@ -164,7 +164,7 @@ class LayoutComponent extends Component {
     } = this.props;
     const { showModal } = this.state;
     return (
-      <div className={classNames('rdw-link-wrapper', className)} aria-label="rdw-link-control">
+      <div className={classNames(styles['rdw-link-wrapper'], className)} aria-label="rdw-link-control">
         {options.indexOf('link') >= 0 && <Option
           value="unordered-list-item"
           className={classNames(link.className)}
@@ -210,14 +210,14 @@ class LayoutComponent extends Component {
     const { showModal } = this.state;
     return (
       <div
-        className="rdw-link-wrapper"
+        className={styles["rdw-link-wrapper"]}
         aria-haspopup="true"
         aria-label="rdw-link-control"
         aria-expanded={expanded}
         title={title}
       >
         <Dropdown
-          className={classNames('rdw-link-dropdown', className)}
+          className={classNames(styles['rdw-link-dropdown'], className)}
           optionWrapperClassName={classNames(dropdownClassName)}
           onChange={onChange}
           expanded={expanded && !showModal}
@@ -231,7 +231,7 @@ class LayoutComponent extends Component {
           />
           {options.indexOf('link') >= 0 && <DropdownOption
             onClick={this.forceExpandAndShowModal}
-            className={classNames('rdw-link-dropdownoption', link.className)}
+            className={classNames(styles['rdw-link-dropdownoption'], link.className)}
             title={link.title || translations['components.controls.link.link']}
           >
             <img
@@ -242,7 +242,7 @@ class LayoutComponent extends Component {
           {options.indexOf('unlink') >= 0 && <DropdownOption
             onClick={this.removeLink}
             disabled={!currentState.link}
-            className={classNames('rdw-link-dropdownoption', unlink.className)}
+            className={classNames(styles['rdw-link-dropdownoption'], unlink.className)}
             title={unlink.title || translations['components.controls.link.unlink']}
           >
             <img

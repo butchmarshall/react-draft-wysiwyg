@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { stopPropagation } from '../../../utils/common';
 import Option from '../../../components/Option';
-import './styles.css';
+import styles from './styles.css';
 
 class LayoutComponent extends Component {
   static propTypes: Object = {
@@ -52,38 +52,38 @@ class LayoutComponent extends Component {
     const { config: { popupClassName }, doCollapse, translations } = this.props;
     return (
       <div
-        className={classNames('rdw-embedded-modal', popupClassName)}
+        className={classNames(styles['rdw-embedded-modal'], popupClassName)}
         onClick={stopPropagation}
       >
-        <div className="rdw-embedded-modal-header">
-          <span className="rdw-embedded-modal-header-option">
+        <div className={styles["rdw-embedded-modal-header"]}>
+          <span className={styles["rdw-embedded-modal-header-option"]}>
             {translations['components.controls.embedded.embeddedlink']}
-            <span className="rdw-embedded-modal-header-label" />
+            <span className={styles["rdw-embedded-modal-header-label"]} />
           </span>
         </div>
-        <div className="rdw-embedded-modal-link-section">
-          <span className="rdw-embedded-modal-link-input-wrapper">
+        <div className={styles["rdw-embedded-modal-link-section"]}>
+          <span className={styles["rdw-embedded-modal-link-input-wrapper"]}>
             <input
-              className="rdw-embedded-modal-link-input"
+              className={styles["rdw-embedded-modal-link-input"]}
               placeholder={translations['components.controls.embedded.enterlink']}
               onChange={this.updateValue}
               onBlur={this.updateValue}
               value={embeddedLink}
               name="embeddedLink"
             />
-            <span className="rdw-image-mandatory-sign">*</span>
+            <span className={styles["rdw-image-mandatory-sign"]}>*</span>
           </span>
-          <div className="rdw-embedded-modal-size">
+          <div className={styles["rdw-embedded-modal-size"]}>
             <span>
               <input
                 onChange={this.updateValue}
                 onBlur={this.updateValue}
                 value={height}
                 name="height"
-                className="rdw-embedded-modal-size-input"
+                className={styles["rdw-embedded-modal-size-input"]}
                 placeholder="Height"
               />
-              <span className="rdw-image-mandatory-sign">*</span>
+              <span className={styles["rdw-image-mandatory-sign"]}>*</span>
             </span>
             <span>
               <input
@@ -91,17 +91,17 @@ class LayoutComponent extends Component {
                 onBlur={this.updateValue}
                 value={width}
                 name="width"
-                className="rdw-embedded-modal-size-input"
+                className={styles["rdw-embedded-modal-size-input"]}
                 placeholder="Width"
               />
-              <span className="rdw-image-mandatory-sign">*</span>
+              <span className={styles["rdw-image-mandatory-sign"]}>*</span>
             </span>
           </div>
         </div>
-        <span className="rdw-embedded-modal-btn-section">
+        <span className={styles["rdw-embedded-modal-btn-section"]}>
           <button
             type="button"
-            className="rdw-embedded-modal-btn"
+            className={styles["rdw-embedded-modal-btn"]}
             onClick={this.onChange}
             disabled={!embeddedLink || !height || !width}
           >
@@ -109,7 +109,7 @@ class LayoutComponent extends Component {
           </button>
           <button
             type="button"
-            className="rdw-embedded-modal-btn"
+            className={styles["rdw-embedded-modal-btn"]}
             onClick={doCollapse}
           >
             {translations['generic.cancel']}
@@ -128,7 +128,7 @@ class LayoutComponent extends Component {
     } = this.props;
     return (
       <div
-        className="rdw-embedded-wrapper"
+        className={styles["rdw-embedded-wrapper"]}
         aria-haspopup="true"
         aria-expanded={expanded}
         aria-label="rdw-embedded-control"

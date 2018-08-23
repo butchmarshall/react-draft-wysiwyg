@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import addMention from '../addMention';
 import KeyDownHandler from '../../../event-handler/keyDown';
 import SuggestionHandler from '../../../event-handler/suggestions';
-import './styles.css';
+import styles from './styles.css';
 
 class Suggestion {
   constructor(config) {
@@ -220,7 +220,7 @@ function getSuggestionComponent() {
       const { dropdownClassName, optionClassName } = config;
       return (
         <span
-          className="rdw-suggestion-wrapper"
+          className={styles["rdw-suggestion-wrapper"]}
           ref={this.setSuggestionReference}
           onClick={config.modalHandler.onSuggestionClick}
           aria-haspopup="true"
@@ -229,7 +229,7 @@ function getSuggestionComponent() {
           <span>{children}</span>
           {showSuggestions &&
             <span
-              className={classNames('rdw-suggestion-dropdown', dropdownClassName)}
+              className={classNames(styles['rdw-suggestion-dropdown'], dropdownClassName)}
               contentEditable="false"
               suppressContentEditableWarning
               style={this.state.style}
@@ -244,9 +244,9 @@ function getSuggestionComponent() {
                   onMouseEnter={this.onOptionMouseEnter}
                   onMouseLeave={this.onOptionMouseLeave}
                   className={classNames(
-                    'rdw-suggestion-option',
+                    styles['rdw-suggestion-option'],
                     optionClassName,
-                    { 'rdw-suggestion-option-active': (index === activeOption) },
+                    { [styles['rdw-suggestion-option-active']] : (index === activeOption) },
                   )}
                 >
                   {suggestion.text}

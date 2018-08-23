@@ -1,11 +1,11 @@
 /* @flow */
 
 import React from 'react';
-import './styles.css';
+import styles from './styles.css';
 
 export default () =>
-  (<div className="rdw-spinner">
-    <div className="rdw-bounce1" />
-    <div className="rdw-bounce2" />
-    <div className="rdw-bounce3" />
+  (<div className={styles["rdw-spinner"]}>
+    <div className={styles["rdw-bounce1"]} />
+    <div className={styles["rdw-bounce2"]} />
+    <div className={styles["rdw-bounce3"]} />
   </div>);

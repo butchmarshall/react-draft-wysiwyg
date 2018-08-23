@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { EditorState } from 'draft-js';
 import classNames from 'classnames';
 import Option from '../../components/Option';
-import './styles.css';
+import styles from './styles.css';
 
 const getImageComponent = config => class Image extends Component {
   static propTypes: Object = {
@@ -51,27 +51,27 @@ const getImageComponent = config => class Image extends Component {
     return (
       <div
         className={classNames(
-          'rdw-image-alignment-options-popup',
+          styles['rdw-image-alignment-options-popup'],
           {
-            'rdw-image-alignment-options-popup-right': alignment === 'right',
+            [styles['rdw-image-alignment-options-popup-right']] : alignment === 'right',
           },
         )}
       >
         <Option
           onClick={this.setEntityAlignmentLeft}
-          className="rdw-image-alignment-option"
+          className={styles["rdw-image-alignment-option"]}
         >
           L
         </Option>
         <Option
           onClick={this.setEntityAlignmentCenter}
-          className="rdw-image-alignment-option"
+          className={styles["rdw-image-alignment-option"]}
         >
           C
         </Option>
         <Option
           onClick={this.setEntityAlignmentRight}
-          className="rdw-image-alignment-option"
+          className={styles["rdw-image-alignment-option"]}
         >
           R
         </Option>
@@ -91,15 +91,15 @@ const getImageComponent = config => class Image extends Component {
         onMouseEnter={this.toggleHovered}
         onMouseLeave={this.toggleHovered}
         className={classNames(
-          'rdw-image-alignment',
+          styles['rdw-image-alignment'],
           {
-            'rdw-image-left': alignment === 'left',
-            'rdw-image-right': alignment === 'right',
-            'rdw-image-center': !alignment || alignment === 'none',
+            [styles['rdw-image-left']] : alignment === 'left',
+            [styles['rdw-image-right']] : alignment === 'right',
+            [styles['rdw-image-center']] : !alignment || alignment === 'none',
           },
         )}
       >
-        <span className="rdw-image-imagewrapper">
+        <span className={styles["rdw-image-imagewrapper"]}>
           <img
             src={src}
             alt={alt}

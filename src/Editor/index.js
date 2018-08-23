@@ -34,8 +34,8 @@ import getHashtagDecorator from "../decorators/HashTag";
 import getBlockRenderFunc from "../renderer";
 import defaultToolbar from "../config/defaultToolbar";
 import localeTranslations from "../i18n";
-import "./styles.css";
-import "../../css/Draft.css";
+import styles from "./styles.css";
+import draft_styles from "../../css/Draft.css";
 
 export default class WysiwygEditor extends Component {
   static propTypes = {
@@ -486,7 +486,7 @@ export default class WysiwygEditor extends Component {
     return (
       <div
         id={this.wrapperId}
-        className={classNames(wrapperClassName, "rdw-editor-wrapper")}
+        className={classNames(wrapperClassName, styles["rdw-editor-wrapper"])}
         style={wrapperStyle}
         onClick={this.modalHandler.onEditorClick}
         onBlur={this.onWrapperBlur}
@@ -494,7 +494,7 @@ export default class WysiwygEditor extends Component {
       >
         {!toolbarHidden && (
           <div
-            className={classNames("rdw-editor-toolbar", toolbarClassName)}
+            className={classNames(styles["rdw-editor-toolbar"], toolbarClassName)}
             style={{
               visibility: toolbarShow ? "visible" : "hidden",
               ...toolbarStyle
@@ -520,7 +520,7 @@ export default class WysiwygEditor extends Component {
         )}
         <div
           ref={this.setWrapperReference}
-          className={classNames(editorClassName, "rdw-editor-main")}
+          className={classNames(editorClassName, styles["rdw-editor-main"])}
           style={editorStyle}
           onClick={this.focusEditor}
           onFocus={this.onEditorFocus}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './styles.css';
+import styles from './styles.css';
 
 class Mention {
   constructor(className) {
@@ -12,7 +12,7 @@ class Mention {
     const MentionComponent = ({ entityKey, children, contentState }) => {
       const { url, value } = contentState.getEntity(entityKey).getData();
       return (
-        <a href={url || value} className={classNames('rdw-mention-link', className)}>
+        <a href={url || value} className={classNames(styles['rdw-mention-link'], className)}>
           {children}
         </a>
       );

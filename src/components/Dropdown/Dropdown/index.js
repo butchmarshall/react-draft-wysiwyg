@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './styles.css';
+import styles from './styles.css';
 
 import { stopPropagation } from '../../../utils/common';
 
@@ -70,26 +70,26 @@ export default class Dropdown extends Component {
     const options = children.slice(1, children.length);
     return (
       <div
-        className={classNames('rdw-dropdown-wrapper', className)}
+        className={classNames(styles['rdw-dropdown-wrapper'], className)}
         aria-expanded={expanded}
         aria-label={ariaLabel || 'rdw-dropdown'}
       >
         <a
-          className="rdw-dropdown-selectedtext"
+          className={styles["rdw-dropdown-selectedtext"]}
           onClick={onExpandEvent}
           title={title}
         >
           {children[0]}
           <div
             className={classNames({
-              'rdw-dropdown-carettoclose': expanded,
-              'rdw-dropdown-carettoopen': !expanded,
+              [styles['rdw-dropdown-carettoclose']] : expanded,
+              [styles['rdw-dropdown-carettoopen']] : !expanded,
             })}
           />
         </a>
         {expanded ?
           <ul
-            className={classNames('rdw-dropdown-optionwrapper', optionWrapperClassName)}
+            className={classNames(styles['rdw-dropdown-optionwrapper'], optionWrapperClassName)}
             onClick={stopPropagation}
           >
             {

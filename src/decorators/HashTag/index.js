@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './styles.css';
+import styles from './styles.css';
 
 class Hashtag {
   constructor(config) {
@@ -16,7 +16,7 @@ class Hashtag {
     const HashtagComponent = ({ children }) => {
       const text = children[0].props.text;
       return (
-        <a href={text} className={classNames('rdw-hashtag-link', className)}>
+        <a href={text} className={classNames(styles['rdw-hashtag-link'], className)}>
           {children}
         </a>
       );

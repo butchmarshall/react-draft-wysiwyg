@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { stopPropagation } from '../../../utils/common';
 import Option from '../../../components/Option';
-import './styles.css';
+import styles from './styles.css';
 
 class LayoutComponent extends Component {
   static propTypes: Object = {
@@ -26,13 +26,13 @@ class LayoutComponent extends Component {
     const { config: { popupClassName, emojis } } = this.props;
     return (
       <div
-        className={classNames('rdw-emoji-modal', popupClassName)}
+        className={classNames(styles['rdw-emoji-modal'], popupClassName)}
         onClick={stopPropagation}
       >
         {
           emojis.map((emoji, index) => (<span
             key={index}
-            className="rdw-emoji-icon"
+            className={styles["rdw-emoji-icon"]}
             alt=""
             onClick={this.onChange}
           >{emoji}</span>))
@@ -50,7 +50,7 @@ class LayoutComponent extends Component {
     } = this.props;
     return (
       <div
-        className="rdw-emoji-wrapper"
+        className={styles["rdw-emoji-wrapper"]}
         aria-haspopup="true"
         aria-label="rdw-emoji-control"
         aria-expanded={expanded}
