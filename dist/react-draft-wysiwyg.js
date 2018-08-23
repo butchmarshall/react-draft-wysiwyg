@@ -8,7 +8,6 @@ var require$$0 = require('immutable');
 var require$$0__default = _interopDefault(require$$0);
 var React = require('react');
 var React__default = _interopDefault(React);
-require('style-loader!css-loader!Draft.css');
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
