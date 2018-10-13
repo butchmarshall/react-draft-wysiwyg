@@ -67,5 +67,3 @@ const getDecorator = config => (new Hashtag(config)).getHashtagDecorator();
 const exports = getDecorator;
 
 export default exports;
-
-module.exports = exports;

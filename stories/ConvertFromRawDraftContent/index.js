@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { EditorState, convertFromRaw } from 'draft-js';
-import { Editor } from '../../src';
+import Editor from '../../src';
 
 class ConvertFromRawDraftContent extends Component {
   constructor(props) {
