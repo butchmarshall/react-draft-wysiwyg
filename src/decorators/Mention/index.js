@@ -9,5 +9,3 @@ const getDecorators = config => [
 const exports = getDecorators;
 
 export default exports;
-
-module.exports = exports;

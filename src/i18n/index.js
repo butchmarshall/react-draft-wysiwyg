@@ -31,5 +31,3 @@ const exports = {
 };
 
 export default exports;
-
-module.exports = exports;

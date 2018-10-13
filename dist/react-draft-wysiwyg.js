@@ -1237,13 +1237,6 @@ var mergeRecursive = function mergeRecursive(obj1, obj2) {
   return mergedValue;
 };
 
-var exports$1 = {
-  getFirstIcon: getFirstIcon,
-  mergeRecursive: mergeRecursive
-};
-
-module.exports = exports$1;
-
 // todo: writing test cases for these methods and new methods added in common.js
 
 var htmlToDraftjs = createCommonjsModule(function (module, exports) {
@@ -1591,19 +1584,17 @@ DropDownOption.propTypes = {
   title: propTypes.string
 };
 
-var exports$2 = {
+var exports$1 = {
   Dropdown: Dropdown,
   DropdownOption: DropDownOption
 };
-
-module.exports = exports$2;
 
 var css$3 = ".styles_rdw-inline-wrapper__1P4_m {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-inline-dropdown__2HulI {\n  width: 50px;\n}\n.styles_rdw-inline-dropdownoption__3y2-H {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n";
 var styles$3 = { "rdw-inline-wrapper": "styles_rdw-inline-wrapper__1P4_m", "rdw-inline-dropdown": "styles_rdw-inline-dropdown__2HulI", "rdw-inline-dropdownoption": "styles_rdw-inline-dropdownoption__3y2-H" };
 styleInject(css$3);
 
-var Dropdown$1 = exports$2.Dropdown;
-var DropdownOption = exports$2.DropdownOption;
+var Dropdown$1 = exports$1.Dropdown;
+var DropdownOption = exports$1.DropdownOption;
 
 var Inline = function (_Component) {
   inherits(Inline, _Component);
@@ -1851,8 +1842,8 @@ var css$4 = ".styles_rdw-block-wrapper__nEfEV {\n  display: flex;\n  align-items
 var styles$4 = { "rdw-block-wrapper": "styles_rdw-block-wrapper__nEfEV", "rdw-block-dropdown": "styles_rdw-block-dropdown__3dLTo" };
 styleInject(css$4);
 
-var Dropdown$2 = exports$2.Dropdown;
-var DropdownOption$1 = exports$2.DropdownOption;
+var Dropdown$2 = exports$1.Dropdown;
+var DropdownOption$1 = exports$1.DropdownOption;
 
 var LayoutComponent = function (_Component) {
   inherits(LayoutComponent, _Component);
@@ -2107,8 +2098,8 @@ var css$5 = ".styles_rdw-fontsize-wrapper__1wR6G {\n  display: flex;\n  align-it
 var styles$5 = { "rdw-fontsize-wrapper": "styles_rdw-fontsize-wrapper__1wR6G", "rdw-fontsize-dropdown": "styles_rdw-fontsize-dropdown__nOiqS", "rdw-fontsize-option": "styles_rdw-fontsize-option__2Bkf8" };
 styleInject(css$5);
 
-var Dropdown$3 = exports$2.Dropdown;
-var DropdownOption$2 = exports$2.DropdownOption;
+var Dropdown$3 = exports$1.Dropdown;
+var DropdownOption$2 = exports$1.DropdownOption;
 
 var LayoutComponent$1 = function (_Component) {
   inherits(LayoutComponent, _Component);
@@ -2326,8 +2317,8 @@ var css$6 = ".styles_rdw-fontfamily-wrapper__21RBK {\n  display: flex;\n  align-
 var styles$6 = { "rdw-fontfamily-wrapper": "styles_rdw-fontfamily-wrapper__21RBK", "rdw-fontfamily-dropdown": "styles_rdw-fontfamily-dropdown__1We3y", "rdw-fontfamily-placeholder": "styles_rdw-fontfamily-placeholder__2QAsi", "rdw-fontfamily-optionwrapper": "styles_rdw-fontfamily-optionwrapper__2E0Lw" };
 styleInject(css$6);
 
-var Dropdown$4 = exports$2.Dropdown;
-var DropdownOption$3 = exports$2.DropdownOption;
+var Dropdown$4 = exports$1.Dropdown;
+var DropdownOption$3 = exports$1.DropdownOption;
 
 var LayoutComponent$2 = function (_Component) {
   inherits(LayoutComponent, _Component);
@@ -2543,8 +2534,8 @@ var css$7 = ".styles_rdw-list-wrapper__2ooQ_ {\n  display: flex;\n  align-items:
 var styles$7 = { "rdw-list-wrapper": "styles_rdw-list-wrapper__2ooQ_", "rdw-list-dropdown": "styles_rdw-list-dropdown__3diZQ", "rdw-list-dropdownOption": "styles_rdw-list-dropdownOption__ntKvF" };
 styleInject(css$7);
 
-var Dropdown$5 = exports$2.Dropdown;
-var DropdownOption$4 = exports$2.DropdownOption;
+var Dropdown$5 = exports$1.Dropdown;
+var DropdownOption$4 = exports$1.DropdownOption;
 
 var LayoutComponent$3 = function (_Component) {
   inherits(LayoutComponent, _Component);
@@ -2885,12 +2876,12 @@ List.propTypes = {
   translations: propTypes.object
 };
 
-var css$8 = ".styles_rdw-text-align-wrapper__3981N {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.styles_rdw-text-align-dropdown__1iQB- {\n  width: 50px;\n  z-index: 90;\n}\n.styles_rdw-text-align-dropdownOption__3ePHm {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.styles_rdw-right-aligned-block__rsuYT {\n  text-align: right;\n}\n.styles_rdw-left-aligned-block__zUlT6 {\n  text-align: left !important;\n}\n.styles_rdw-center-aligned-block__23hhC {\n  text-align: center !important;\n}\n.styles_rdw-justify-aligned-block__2-1sa {\n  text-align: justify !important;\n}\n.styles_rdw-right-aligned-block__rsuYT > div {\n  display: inline-block;\n}\n.styles_rdw-left-aligned-block__zUlT6 > div {\n  display: inline-block;\n}\n.styles_rdw-center-aligned-block__23hhC > div {\n  display: inline-block;\n}\n.styles_rdw-justify-aligned-block__2-1sa > div {\n  display: inline-block;\n}\n";
-var styles$8 = { "rdw-text-align-wrapper": "styles_rdw-text-align-wrapper__3981N", "rdw-text-align-dropdown": "styles_rdw-text-align-dropdown__1iQB-", "rdw-text-align-dropdownOption": "styles_rdw-text-align-dropdownOption__3ePHm", "rdw-right-aligned-block": "styles_rdw-right-aligned-block__rsuYT", "rdw-left-aligned-block": "styles_rdw-left-aligned-block__zUlT6", "rdw-center-aligned-block": "styles_rdw-center-aligned-block__23hhC", "rdw-justify-aligned-block": "styles_rdw-justify-aligned-block__2-1sa" };
+var css$8 = ".styles_rdw-text-align-wrapper__3981N {\n  display: flex;\n  align-items: center;\n  margin-bottom: 6px;\n}\n.rdw-text-align-dropdown {\n  width: 50px;\n  z-index: 90;\n}\n.rdw-text-align-dropdownOption {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n}\n.rdw-right-aligned-block {\n  text-align: right;\n}\n.rdw-left-aligned-block {\n  text-align: left !important;\n}\n.rdw-center-aligned-block {\n  text-align: center !important;\n}\n.rdw-justify-aligned-block {\n  text-align: justify !important;\n}\n.rdw-right-aligned-block > div {\n  display: inline-block;\n}\n.rdw-left-aligned-block > div {\n  display: inline-block;\n}\n.rdw-center-aligned-block > div {\n  display: inline-block;\n}\n.rdw-justify-aligned-block > div {\n  display: inline-block;\n}\n";
+var styles$8 = { "rdw-text-align-wrapper": "styles_rdw-text-align-wrapper__3981N" };
 styleInject(css$8);
 
-var Dropdown$6 = exports$2.Dropdown;
-var DropdownOption$5 = exports$2.DropdownOption;
+var Dropdown$6 = exports$1.Dropdown;
+var DropdownOption$5 = exports$1.DropdownOption;
 
 var TextAlign = function (_Component) {
   inherits(TextAlign, _Component);
@@ -4285,8 +4276,8 @@ var css$a = ".styles_rdw-link-wrapper__3cfYc {\n  display: flex;\n  align-items:
 var styles$a = { "rdw-link-wrapper": "styles_rdw-link-wrapper__3cfYc", "rdw-link-dropdown": "styles_rdw-link-dropdown__1Hi3q", "rdw-link-dropdownOption": "styles_rdw-link-dropdownOption__zwz_2", "rdw-link-dropdownPlaceholder": "styles_rdw-link-dropdownPlaceholder___IW6R", "rdw-link-modal": "styles_rdw-link-modal__jA2ci", "rdw-link-modal-label": "styles_rdw-link-modal-label__1D7tf", "rdw-link-modal-input": "styles_rdw-link-modal-input__BGVou", "rdw-link-modal-buttonsection": "styles_rdw-link-modal-buttonsection__1kr_h", "rdw-link-modal-target-option": "styles_rdw-link-modal-target-option__1VIuX", "rdw-link-modal-btn": "styles_rdw-link-modal-btn__1t8A6", "rdw-link-dropdownoption": "styles_rdw-link-dropdownoption__1E3ZT", "rdw-history-dropdown": "styles_rdw-history-dropdown__2FN6o" };
 styleInject(css$a);
 
-var Dropdown$7 = exports$2.Dropdown;
-var DropdownOption$6 = exports$2.DropdownOption;
+var Dropdown$7 = exports$1.Dropdown;
+var DropdownOption$6 = exports$1.DropdownOption;
 
 var LayoutComponent$5 = function (_Component) {
   inherits(LayoutComponent, _Component);
@@ -5893,8 +5884,8 @@ var css$g = ".styles_rdw-history-wrapper__1oSed {\n  display: flex;\n  align-ite
 var styles$g = { "rdw-history-wrapper": "styles_rdw-history-wrapper__1oSed", "rdw-history-dropdownoption": "styles_rdw-history-dropdownoption__16x1p", "rdw-history-dropdown": "styles_rdw-history-dropdown__1Hdu9" };
 styleInject(css$g);
 
-var Dropdown$8 = exports$2.Dropdown;
-var DropdownOption$7 = exports$2.DropdownOption;
+var Dropdown$8 = exports$1.Dropdown;
+var DropdownOption$7 = exports$1.DropdownOption;
 
 var History = function (_Component) {
   inherits(History, _Component);
@@ -6167,7 +6158,7 @@ History$1.propTypes = {
   translations: propTypes.object
 };
 
-var exports$3 = {
+var exports$2 = {
   inline: Inline$1,
   blockType: BlockType,
   fontSize: FontSize,
@@ -6182,8 +6173,6 @@ var exports$3 = {
   remove: Remove,
   history: History$1
 };
-
-module.exports = exports$3;
 
 var openlink = "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20width%3D%2215px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2015%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3Eopenlink%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22openlink%22%20fill%3D%22%23000000%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Capa_1%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M14.0715845%2C0%20L8.91533451%2C0%20C8.40565141%2C0%207.99103873%2C0.414665493%207.99103873%2C0.924295775%20C7.99103873%2C1.43392606%208.40565141%2C1.84859155%208.91533451%2C1.84859155%20L11.8401761%2C1.84859155%20L6.96121479%2C6.7275%20C6.7865493%2C6.90205986%206.69042254%2C7.13413732%206.69042254%2C7.38110915%20C6.69042254%2C7.62808099%206.78649648%2C7.86010563%206.96110915%2C8.03450704%20C7.13572183%2C8.20927817%207.36774648%2C8.30545775%207.61471831%2C8.30545775%20C7.86158451%2C8.30545775%208.09371479%2C8.20933099%208.26838028%2C8.03466549%20L13.1472887%2C3.15570423%20L13.1472887%2C6.08054577%20C13.1472887%2C6.59017606%2013.5619542%2C7.00484155%2014.0715845%2C7.00484155%20C14.5812148%2C7.00484155%2014.9958803%2C6.59017606%2014.9958803%2C6.08054577%20L14.9958803%2C0.924295775%20C14.9958803%2C0.414665493%2014.5812148%2C0%2014.0715845%2C0%20L14.0715845%2C0%20Z%22%20id%3D%22Shape%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M10.6234331%2C13.4113732%20L1.58450704%2C13.4113732%20L1.58450704%2C4.37244718%20L8.38262324%2C4.37244718%20L9.96713028%2C2.78794014%20L0.792253521%2C2.78794014%20C0.35471831%2C2.78794014%200%2C3.14265845%200%2C3.58019366%20L0%2C14.2036268%20C0%2C14.641162%200.35471831%2C14.9958803%200.792253521%2C14.9958803%20L11.4156866%2C14.9958803%20C11.8532218%2C14.9958803%2012.2079401%2C14.641162%2012.2079401%2C14.2036268%20L12.2079401%2C5.02875%20L10.6234331%2C6.61325704%20L10.6234331%2C13.4113732%20L10.6234331%2C13.4113732%20Z%22%20id%3D%22Shape%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E";
 
@@ -6343,8 +6332,6 @@ Mention.prototype.findMentionEntities = function (contentBlock, callback, conten
     return entityKey !== null && contentState.getEntity(entityKey).getType() === 'MENTION';
   }, callback);
 };
-
-module.exports = Mention;
 
 function addMention(editorState, onChange, separator, trigger, suggestion) {
   var value = suggestion.value,
@@ -6659,15 +6646,11 @@ function getSuggestionComponent() {
   }, _temp2;
 }
 
-module.exports = Suggestion;
-
 var getDecorators = function getDecorators(config) {
   return [new Mention(config.mentionClassName).getMentionDecorator(), new Suggestion(config).getSuggestionDecorator()];
 };
 
-var exports$4 = getDecorators;
-
-module.exports = exports$4;
+var exports$3 = getDecorators;
 
 var css$k = ".styles_rdw-hashtag-link__1n6w2 {\n  text-decoration: none;\n  color: #1236ff;\n  background-color: #f0fbff;\n  padding: 1px 2px;\n  border-radius: 2px;\n}\n";
 var styles$k = { "rdw-hashtag-link": "styles_rdw-hashtag-link__1n6w2" };
@@ -6741,9 +6724,7 @@ var getDecorator = function getDecorator(config) {
   return new Hashtag(config).getHashtagDecorator();
 };
 
-var exports$5 = getDecorator;
-
-module.exports = exports$5;
+var exports$4 = getDecorator;
 
 var Embed = function Embed(_ref) {
   var block = _ref.block,
@@ -8260,7 +8241,7 @@ var ja = {
   'components.controls.textalign.justify': '両端揃え'
 };
 
-var exports$6 = {
+var exports$5 = {
   en: en,
   fr: fr,
   zh: zh,
@@ -8276,8 +8257,6 @@ var exports$6 = {
   es: es,
   ja: ja
 };
-
-module.exports = exports$6;
 
 var css$m = ".styles_rdw-editor-main__38CMd {\n  height: 100%;\n  overflow: auto;\n  box-sizing: border-box;\n}\n.styles_rdw-editor-toolbar__2kYhf {\n  padding: 6px 5px 0;\n  border-radius: 2px;\n  border: 1px solid #F1F1F1;\n  display: flex;\n  justify-content: flex-start;\n  background: white;\n  flex-wrap: wrap;\n  font-size: 15px;\n  margin-bottom: 5px;\n  user-select: none;\n}\n.styles_public-DraftStyleDefault-block__1XRmq {\n  margin: 1em 0;\n}\n.styles_rdw-editor-wrapper__eSweN:focus {\n  outline: none;\n}\n.styles_rdw-editor-wrapper__eSweN {\n  box-sizing: content-box;\n}\n.styles_rdw-editor-main__38CMd blockquote {\n  border-left: 5px solid #f1f1f1;\n  padding-left: 5px;\n}\n.styles_rdw-editor-main__38CMd pre {\n  background: #f1f1f1;\n  border-radius: 3px;\n  padding: 1px 10px;\n}";
 var styles$m = { "rdw-editor-main": "styles_rdw-editor-main__38CMd", "rdw-editor-toolbar": "styles_rdw-editor-toolbar__2kYhf", "public-DraftStyleDefault-block": "styles_public-DraftStyleDefault-block__1XRmq", "rdw-editor-wrapper": "styles_rdw-editor-wrapper__eSweN" };
@@ -8393,7 +8372,7 @@ var WysiwygEditor = function (_Component) {
         modalHandler: this.modalHandler,
         editorState: editorState,
         onChange: this.onChange,
-        translations: _extends({}, exports$6[locale || newLocale], translations)
+        translations: _extends({}, exports$5[locale || newLocale], translations)
       };
       var toolbarShow = editorFocused || this.focusHandler.isInputFocused() || !toolbarOnFocus;
       return React__default.createElement(
@@ -8419,7 +8398,7 @@ var WysiwygEditor = function (_Component) {
             onFocus: this.onToolbarFocus
           },
           toolbar.options.map(function (opt, index) {
-            var Control = exports$3[opt];
+            var Control = exports$2[opt];
             var config = toolbar[opt];
             if (opt === "image" && uploadCallback) {
               config.uploadCallback = uploadCallback;
@@ -8614,7 +8593,7 @@ var _initialiseProps$2 = function _initialiseProps() {
       showOpenOptionOnHover: _this2.state.toolbar.link.showOpenOptionOnHover
     })]);
     if (_this2.props.mention) {
-      decorators.push.apply(decorators, toConsumableArray(exports$4(_extends({}, _this2.props.mention, {
+      decorators.push.apply(decorators, toConsumableArray(exports$3(_extends({}, _this2.props.mention, {
         onChange: _this2.onChange,
         getEditorState: _this2.getEditorState,
         getSuggestions: _this2.getSuggestions,
@@ -8623,7 +8602,7 @@ var _initialiseProps$2 = function _initialiseProps() {
       }))));
     }
     if (_this2.props.hashtag) {
-      decorators.push(exports$5(_this2.props.hashtag));
+      decorators.push(exports$4(_this2.props.hashtag));
     }
     return new require$$1.CompositeDecorator(decorators);
   };
@@ -8765,7 +8744,5 @@ var _initialiseProps$2 = function _initialiseProps() {
   };
 };
 
-module.exports = {
-  Editor: WysiwygEditor
-};
+module.exports = WysiwygEditor;
 //# sourceMappingURL=react-draft-wysiwyg.js.map

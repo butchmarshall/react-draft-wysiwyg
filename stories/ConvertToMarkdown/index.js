@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import draftToMarkdown from 'draftjs-to-markdown';
-import { Editor } from '../../src';
+import Editor from '../../src';
 
 class ConvertToRawDraftContentEditor extends Component {
   state = {
